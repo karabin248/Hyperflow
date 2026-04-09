@@ -1,0 +1,36 @@
+[project]
+name = "hyperflow"
+dynamic = ["version"]
+description = "Hyperflow MVP: language + engine + control loop"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+hyperflow = "hyperflow.interface.cli:main"
+
+[project.optional-dependencies]
+api = [
+    "fastapi>=0.110,<1",
+    "uvicorn>=0.27,<1",
+]
+test = [
+    "pytest>=8,<9",
+    "build>=1,<2",
+    "httpx>=0.27,<1",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["hyperflow*"]
+
+[tool.setuptools.package-data]
+"hyperflow" = ["configs/*.json"]
+"hyperflow.resources.contracts" = ["*.json"]
+
+[tool.setuptools.dynamic]
+version = {attr = "hyperflow.version.__version__"}

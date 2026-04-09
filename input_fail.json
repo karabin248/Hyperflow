@@ -1,0 +1,4 @@
+{
+  "command": ["python3", "-c", "import sys; print('hf-fail'); sys.exit(2)"],
+  "cwd": "."
+}

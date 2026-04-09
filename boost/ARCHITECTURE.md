@@ -1,0 +1,41 @@
+flowchart TD
+
+INPUT["User Input / CLI Command"]
+COMMAND["Command Builder"]
+RUNTIME["Runtime Kernel"]
+EXECUTION["Execution Result"]
+
+INPUT --> COMMAND
+COMMAND --> RUNTIME
+RUNTIME --> EXECUTION
+flowchart TD
+
+CLI["CLI Interface"]
+COMMAND["Command Builder"]
+RUNTIME["Runtime Kernel"]
+
+OUTPUT["Output Layer"]
+
+GRAPH_MEMORY["Graph Memory"]
+GRAPH_ANALYTICS["Graph Analytics"]
+GRAPH_REASONING["Graph Reasoning"]
+
+SELF_PROFILE["Self Profile"]
+STATUS_REPORT["Status Report"]
+
+CHECKPOINT["Checkpoint Snapshot"]
+CHECKPOINT_HISTORY["Checkpoint History"]
+
+CLI --> COMMAND
+COMMAND --> RUNTIME
+RUNTIME --> OUTPUT
+
+RUNTIME --> GRAPH_MEMORY
+GRAPH_MEMORY --> GRAPH_ANALYTICS
+GRAPH_ANALYTICS --> GRAPH_REASONING
+
+GRAPH_REASONING --> SELF_PROFILE
+SELF_PROFILE --> STATUS_REPORT
+
+STATUS_REPORT --> CHECKPOINT
+CHECKPOINT --> CHECKPOINT_HISTORY

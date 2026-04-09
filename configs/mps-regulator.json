@@ -1,0 +1,112 @@
+{
+  "schema": "hyperflow/mps-regulator/v1",
+  "system": {
+    "name": "MPS-Regulator",
+    "version": "0.5.0",
+    "purpose": "Regulator multi-pulse system, thresholds, escalation and reroute rules"
+  },
+  "mps_levels": [
+    {
+      "level": 1,
+      "name": "Observation",
+      "notes": "passive, gather telemetry"
+    },
+    {
+      "level": 2,
+      "name": "Stabilize",
+      "notes": "soft corrections, low-impact reroutes"
+    },
+    {
+      "level": 3,
+      "name": "Harmonize",
+      "notes": "coordinate agents, cluster tuning"
+    },
+    {
+      "level": 4,
+      "name": "Amplify",
+      "notes": "scale up compute / push workflows"
+    },
+    {
+      "level": 5,
+      "name": "Dominant Core",
+      "notes": "activate core-dominant workflows"
+    },
+    {
+      "level": 6,
+      "name": "Satellite Ops",
+      "notes": "satellite agent orchestration"
+    },
+    {
+      "level": 7,
+      "name": "Emergency",
+      "notes": "full mitigation, fallback to safe-core"
+    }
+  ],
+  "dominant_core_policy": {
+    "engage_when": [
+      "vector_shift>0.3",
+      "consistency_drop>0.2"
+    ],
+    "actions": [
+      "constrain_satellites",
+      "increase_core_attention",
+      "notify-ops"
+    ]
+  },
+  "observer_mode": {
+    "enabled": true,
+    "sample_rate": "auto",
+    "notes": "telemetry-first sampling"
+  },
+  "thresholds": {
+    "latency_ms": 2000,
+    "error_rate": 0.2,
+    "consistency_drop": 0.15,
+    "vector_shift": 0.25
+  },
+  "escalation_rules": [
+    {
+      "when": "error_rate>threshold",
+      "level": "warn",
+      "action": [
+        "alert",
+        "increase_observation"
+      ]
+    },
+    {
+      "when": "error_rate>threshold*2",
+      "level": "critical",
+      "action": [
+        "pause_noncritical_agents",
+        "notify_admins",
+        "reroute_to_core"
+      ]
+    },
+    {
+      "when": "vector_shift>threshold",
+      "level": "warn",
+      "action": [
+        "snapshot_state",
+        "increase_core_attention",
+        "log_fragment"
+      ]
+    }
+  ],
+  "safe_reroute": {
+    "strategy": "return_to_core",
+    "steps": [
+      "checkpoint",
+      "suppress_external_calls",
+      "re-summarize_context",
+      "hand_off_to_core"
+    ]
+  },
+  "fragmenting": {
+    "enabled": true,
+    "max_fragment_size_kb": 512,
+    "standard": "hyperflow-fragment/v1"
+  },
+  "meta": {
+    "notes": "Regulator for MPS, use to automate escalation & safe reroute"
+  }
+}

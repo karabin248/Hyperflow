@@ -1,0 +1,140 @@
+{
+  "schema": "hyperflow/system/v1",
+  "role": "shell-spec",
+  "executable": false,
+  "system": {
+    "name": "Hyperflow System Shell",
+    "version": "0.9.0",
+    "purpose": "Macro architecture visible in the diagram - vectors, engines, safety, export, runtime"
+  },
+  "subsystems": {
+    "interpretation_layer": {
+      "enabled": true,
+      "notes": "semantic parsing + discourse mapping"
+    },
+    "token_cluster_engine": {
+      "enabled": true,
+      "sharding_strategy": "by-topic"
+    },
+    "vector_dynamics": {
+      "enabled": true,
+      "embedding_dim": 1536,
+      "latent_displacement_model": "v1"
+    },
+    "prompt_architecture": {
+      "enabled": true,
+      "templates_store": "inline_runtime"
+    },
+    "execution_layer": {
+      "enabled": true,
+      "runtimes": [
+        "python",
+        "go",
+        "wasm"
+      ]
+    },
+    "control_layer": {
+      "enabled": true,
+      "router": "action-router-v1"
+    },
+    "thresholds_alerts": {
+      "enabled": true,
+      "alert_sink": "alerts/hyperflow_alerts"
+    },
+    "identity_safety": {
+      "enabled": true,
+      "identity_channel": "identity://core",
+      "mitigation": "safe_reroute"
+    },
+    "semantic_compression": {
+      "enabled": true,
+      "algorithm": "chunk-compress-v1",
+      "fragment_ready": true
+    },
+    "efficiency_layer": {
+      "enabled": true,
+      "notes": "workload shaping, batching, backpressure"
+    },
+    "storage_interop": {
+      "enabled": true,
+      "formats": [
+        "json",
+        "csv",
+        "txt",
+        "md"
+      ],
+      "fragment_standard": "hyperflow-fragment/v1"
+    },
+    "export": {
+      "enabled": true,
+      "targets": [
+        "local",
+        "s3",
+        "artifact-store"
+      ]
+    },
+    "mobile_runtime_testbed": {
+      "enabled": true,
+      "notes": "android test harness + lightweight runtime"
+    },
+    "optimization": {
+      "enabled": true,
+      "notes": "heuristic tuning, cost-aware routing"
+    }
+  },
+  "axes": {
+    "x": "action_routing",
+    "y": "meaning_symbolism",
+    "z": "system_control"
+  },
+  "prompt_architecture": {
+    "prompt_layers": [
+      "seed",
+      "context",
+      "directive",
+      "safety",
+      "postprocess"
+    ],
+    "template_store": "inline_runtime"
+  },
+  "thresholds": {
+    "error_rate_threshold": 0.15,
+    "latency_threshold_ms": 1500,
+    "vector_shift_threshold": 0.25
+  },
+  "alerts": {
+    "levels": [
+      "info",
+      "warn",
+      "critical"
+    ],
+    "sinks": [
+      "console",
+      "email",
+      "webhook",
+      "project-alerts"
+    ]
+  },
+  "fragment_standard": "hyperflow-fragment/v1",
+  "interop": {
+    "storage": [
+      "json",
+      "csv"
+    ],
+    "export": [
+      "txt",
+      "json",
+      "markdown"
+    ],
+    "api_contract": "hyperflow/interop/v1"
+  },
+  "runtime": {
+    "default": "python",
+    "lightweight": "wasm",
+    "mobile_testbed": "android_emulator_v1"
+  },
+  "meta": {
+    "diagram_source": "user-photo-v1",
+    "notes": "Shell layer - connects to EDDE core"
+  }
+}

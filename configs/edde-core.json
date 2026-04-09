@@ -1,0 +1,214 @@
+{
+  "schema": "hyperflow/edde-core/v1",
+  "system": {
+    "name": "EDDE-CORE",
+    "version": "1.0.0",
+    "repo": "hyperflow",
+    "status": "active",
+    "language": "en",
+    "mode": "hyperflow"
+  },
+  "identity": {
+    "description": "Canonical decision-to-execution runtime contract for controlled perception, essence extraction, directional synthesis, option generation, and final execution in Hyperflow.",
+    "archetype": "decision-execution-runtime",
+    "style": [
+      "canonical",
+      "controlled",
+      "layered",
+      "analytical",
+      "execution-oriented"
+    ],
+    "tags": [
+      "EDDE",
+      "Hyperflow",
+      "MPS",
+      "runtime",
+      "decision-pipeline",
+      "canonical-contract"
+    ]
+  },
+  "canonical_cycle": [
+    "🌈",
+    "💎",
+    "🔥",
+    "🧠",
+    "🔀",
+    "⚡"
+  ],
+  "cycle_semantics": {
+    "🌈": "perceive",
+    "💎": "extract_essence",
+    "🔥": "sense_direction",
+    "🧠": "synthesize",
+    "🔀": "generate_options",
+    "⚡": "choose"
+  },
+  "layers": [
+    {
+      "id": 1,
+      "key": "perception",
+      "name": "Perception Layer",
+      "function": "Receive input, normalize signals, and establish the current observable state."
+    },
+    {
+      "id": 2,
+      "key": "essence",
+      "name": "Essence Layer",
+      "function": "Extract the core signal, relevant meaning, and decision-bearing substance from input."
+    },
+    {
+      "id": 3,
+      "key": "direction",
+      "name": "Direction Layer",
+      "function": "Establish directional intent and orient the runtime toward the correct problem frame."
+    },
+    {
+      "id": 4,
+      "key": "synthesis",
+      "name": "Synthesis Layer",
+      "function": "Assemble structured understanding and prepare bounded option space."
+    },
+    {
+      "id": 5,
+      "key": "options",
+      "name": "Options Layer",
+      "function": "Generate and compare viable options before commitment."
+    },
+    {
+      "id": 6,
+      "key": "decision",
+      "name": "Decision Layer",
+      "function": "Make the final bounded choice and hand off to output or execution surfaces."
+    }
+  ],
+  "modules": {
+    "perception": {
+      "enabled": true,
+      "goal": "Collect input and recognize relevant signals."
+    },
+    "essence_extraction": {
+      "enabled": true,
+      "goal": "Reduce input into the core meaning and useful signal."
+    },
+    "direction": {
+      "enabled": true,
+      "goal": "Set direction and frame the intended path of execution."
+    },
+    "synthesis": {
+      "enabled": true,
+      "goal": "Build structured understanding from validated signals."
+    },
+    "options": {
+      "enabled": true,
+      "goal": "Generate and compare bounded alternatives before final choice."
+    },
+    "decision": {
+      "enabled": true,
+      "goal": "Commit to a final choice and close the control cycle."
+    }
+  },
+  "runtime_authority": {
+    "canonical_runtime": true,
+    "single_runtime_spine": true,
+    "decision_precedes_output": true,
+    "options_precede_decision": true,
+    "notes": "EDDE-CORE defines canonical control-phase semantics. It must not be replaced by parallel parser, runtime, or orchestration authority."
+  },
+  "capabilities": {
+    "analysis": true,
+    "memory": true,
+    "prompting": true,
+    "synthesis": true,
+    "execution_control": true
+  },
+  "modes": [
+    "architect",
+    "architecture",
+    "audit",
+    "execution",
+    "research",
+    "synthesis",
+    "hyperflow"
+  ],
+  "flows": {
+    "inputs": [
+      "text",
+      "emoji",
+      "ascii",
+      "json",
+      "markdown",
+      "pdf",
+      "concept-map"
+    ],
+    "pipeline": [
+      "perceive",
+      "extract_essence",
+      "sense_direction",
+      "synthesize",
+      "generate_options",
+      "choose",
+      "output"
+    ],
+    "outputs": [
+      "summary",
+      "framework",
+      "prompt",
+      "json",
+      "markdown",
+      "ascii-map"
+    ]
+  },
+  "commands": {
+    "/WELCOME": {
+      "action": "initialize",
+      "description": "Initialize the runtime and enter the active operating mode."
+    },
+    "/MAP": {
+      "action": "map_relations",
+      "description": "Build a relation map across runtime layers, signals, and dependencies."
+    },
+    "/TRACE": {
+      "action": "trace_control_flow",
+      "description": "Trace control phases, decisions, and transformations across the canonical cycle."
+    },
+    "/NEWCATEGORY": {
+      "action": "create_category",
+      "description": "Create a new knowledge or control branch within the current structure."
+    },
+    "/ZEN": {
+      "action": "summarize_state",
+      "description": "Summarize the current runtime state and active structure."
+    }
+  },
+  "signal_grammar": {
+    "🌈": "perceive",
+    "💎": "extract_essence",
+    "🔥": "sense_direction",
+    "🧠": "synthesize",
+    "🔀": "generate_options",
+    "⚡": "choose"
+  },
+  "objectives": [
+    "controlled knowledge organization",
+    "bounded idea synthesis",
+    "framework construction",
+    "prompt creation",
+    "Hyperflow runtime evolution",
+    "mapping decisions across canonical control phases"
+  ],
+  "repo_integration": {
+    "recommended_path": "configs/edde-core.json",
+    "consumed_by": [
+      "command-builder",
+      "emoji-parser",
+      "runtime-kernel",
+      "prompt-loader"
+    ],
+    "notes": "Canonical EDDE core contract for Hyperflow runtime semantics and control-phase interpretation."
+  },
+  "meta": {
+    "author": "Mateusz Harapin",
+    "project": "Hyperflow",
+    "maintained": true
+  }
+}

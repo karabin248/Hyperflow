@@ -1,0 +1,161 @@
+{
+  "schema": "hyperflow/edde-contract/v1",
+  "contract_version": "1.0.0",
+  "status": "ok",
+  "input": {
+    "emoji_run": "🌈💎🔥🧠🔀⚡",
+    "core_text": "runtime contract health check"
+  },
+  "parser": {
+    "matched_combo": "🌈💎🔥🧠🔀⚡",
+    "primary_name": "hyperflow_canonical_full_combo",
+    "primary_match_type": "combo_registry",
+    "primary_status": "core",
+    "resolved_mps_mode": 5,
+    "resolved_edde_phase": [
+      "scan",
+      "extract",
+      "build",
+      "reason",
+      "remix",
+      "deliver"
+    ],
+    "resolved_output_types": [
+      "framework",
+      "json",
+      "plan",
+      "code_structure",
+      "structured_explanation",
+      "variants"
+    ],
+    "resolved_output_subtypes": [
+      "framework",
+      "json",
+      "plan",
+      "code_structure",
+      "structured_explanation",
+      "variants"
+    ],
+    "action_routes": [
+      {
+        "emoji": "🌈💎🔥🧠🔀⚡",
+        "action_id": "pipeline.canonical_full",
+        "command": "pipeline:canonical_full",
+        "safe_to_execute": false
+      }
+    ],
+    "action_route_errors": [],
+    "resolution_policy": "longest_match_first",
+    "parser_decisions": [
+      {
+        "sequence": "🌈💎🔥🧠🔀⚡",
+        "kind": "combo_registry",
+        "name": "hyperflow_canonical_full_combo",
+        "status": "core",
+        "resolved_phase": [
+          "scan",
+          "extract",
+          "build",
+          "reason",
+          "remix",
+          "deliver"
+        ],
+        "runtime_output": [
+          "blueprint",
+          "json",
+          "plan",
+          "blueprint",
+          "spec",
+          "answer"
+        ]
+      }
+    ]
+  },
+  "timeline": [
+    {
+      "phase": "DECIDE",
+      "next_step": "DO",
+      "constraints": {
+        "safe": false,
+        "sandboxed": true,
+        "llm_no_direct_ffi": true
+      }
+    },
+    {
+      "phase": "DO",
+      "next_step": "OUTPUT",
+      "constraints": {
+        "safe": false,
+        "sandboxed": true,
+        "llm_no_direct_ffi": true
+      }
+    },
+    {
+      "phase": "OUTPUT",
+      "next_step": "DECIDE",
+      "constraints": {
+        "safe": false,
+        "sandboxed": true,
+        "llm_no_direct_ffi": true
+      }
+    }
+  ],
+  "runtime": {
+    "flow": [
+      "DECIDE",
+      "DO",
+      "OUTPUT"
+    ],
+    "pipeline_path": [
+      "scan",
+      "extract",
+      "cluster",
+      "interpret",
+      "orchestrate",
+      "remix",
+      "output"
+    ],
+    "pipeline_stage_map": {
+      "extract": [
+        "scan",
+        "extract"
+      ],
+      "discover": [
+        "cluster"
+      ],
+      "do": [
+        "interpret",
+        "orchestrate",
+        "remix"
+      ],
+      "evaluate": [
+        "output"
+      ]
+    },
+    "observer": {
+      "status": "OK",
+      "observer_status": "OK",
+      "reason": "within_threshold",
+      "issues": [],
+      "recommended_action": "continue"
+    },
+    "mps": {
+      "level": 6,
+      "risk_level": "high",
+      "profile": {
+        "name": "Satellite Ops",
+        "execution_policy": "satellite_ops"
+      }
+    }
+  },
+  "output": {
+    "kind": "blueprint",
+    "payload": {
+      "intent": "planning",
+      "mode": "fusion",
+      "observer_status": "OK",
+      "output_subtype": "blueprint"
+    }
+  },
+  "errors": []
+}

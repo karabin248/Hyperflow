@@ -1,0 +1,274 @@
+{
+  "schema": "hyperflow/emoji-action-router/v1",
+  "system": {
+    "name": "EMOJI-ACTION-ROUTER",
+    "version": "1.0.0",
+    "status": "active"
+  },
+  "routing": {
+    "mode": "deterministic",
+    "matching": "longest_match_first",
+    "normalize_unicode": "NFC",
+    "capture_segments_between_matches": true,
+    "preserve_order": true
+  },
+  "routes": {
+    "🤖": {
+      "action_id": "agent.run_main",
+      "command": "agent:run",
+      "default_args": {
+        "agent": "main"
+      },
+      "safe_to_execute": false
+    },
+    "🧠": {
+      "action_id": "reason.invoke_deep",
+      "command": "reason:invoke",
+      "default_args": {
+        "mode": "deep"
+      },
+      "safe_to_execute": false
+    },
+    "📁": {
+      "action_id": "data.load",
+      "command": "data:load",
+      "arg_pattern": "^(?P<path>.+)$",
+      "safe_to_execute": false
+    },
+    "📂": {
+      "action_id": "pipeline.subpipe",
+      "command": "pipeline:subpipe",
+      "arg_pattern": "^(?P<name>[A-Za-z0-9_./:-]+)$",
+      "safe_to_execute": false
+    },
+    "📊": {
+      "action_id": "analyze.viz",
+      "command": "analyze:viz",
+      "default_args": {
+        "plots": "all"
+      },
+      "safe_to_execute": false
+    },
+    "📈": {
+      "action_id": "metrics.compute",
+      "command": "metrics:compute",
+      "default_args": {
+        "kpis": "mrr,churn,ltv"
+      },
+      "safe_to_execute": false
+    },
+    "🧮": {
+      "action_id": "compute.stats",
+      "command": "compute:stats",
+      "default_args": {
+        "bootstrap": "1000"
+      },
+      "safe_to_execute": false
+    },
+    "🔎": {
+      "action_id": "inspect.explain",
+      "command": "inspect:explain",
+      "default_args": {
+        "method": "SHAP"
+      },
+      "safe_to_execute": false
+    },
+    "🧾": {
+      "action_id": "report.generate",
+      "command": "report:generate",
+      "default_args": {
+        "format": "pdf,md"
+      },
+      "safe_to_execute": false
+    },
+    "✍️": {
+      "action_id": "nlp.generate",
+      "command": "nlp:generate",
+      "default_args": {
+        "style": "concise"
+      },
+      "safe_to_execute": false
+    },
+    "💡": {
+      "action_id": "insight.recommend",
+      "command": "insight:recommend",
+      "default_args": {
+        "top": "3"
+      },
+      "safe_to_execute": false
+    },
+    "🧪": {
+      "action_id": "test.run",
+      "command": "test:run",
+      "default_args": {
+        "type": "unit,integration"
+      },
+      "safe_to_execute": false
+    },
+    "🛠️": {
+      "action_id": "debug.start",
+      "command": "debug:start",
+      "default_args": {
+        "verbose": "true"
+      },
+      "safe_to_execute": false
+    },
+    "🔒": {
+      "action_id": "security.encrypt",
+      "command": "security:encrypt",
+      "default_args": {
+        "targets": "secrets"
+      },
+      "safe_to_execute": false
+    },
+    "🚀": {
+      "action_id": "deploy.prod",
+      "command": "deploy:prod",
+      "default_args": {
+        "canary": "true"
+      },
+      "safe_to_execute": false
+    },
+    "🔁": {
+      "action_id": "action.retry",
+      "command": "action:retry",
+      "default_args": {
+        "attempts": "3"
+      },
+      "safe_to_execute": false
+    },
+    "⚡": {
+      "action_id": "exec.fast",
+      "command": "exec:fast",
+      "default_args": {
+        "cpus": "4",
+        "parallel": "true"
+      },
+      "safe_to_execute": false
+    },
+    "🌪️": {
+      "action_id": "chaos.engine",
+      "command": "chaos:engine",
+      "arg_pattern": "^(?P<seed>\\d+)$",
+      "default_args": {
+        "perturb": "5"
+      },
+      "safe_to_execute": false
+    },
+    "🔢": {
+      "action_id": "sweep.param",
+      "command": "sweep:param",
+      "arg_pattern": "^(?P<grid>.+)$",
+      "safe_to_execute": false
+    },
+    "📸": {
+      "action_id": "snapshot.save",
+      "command": "snapshot:save",
+      "arg_pattern": "^(?P<label>[A-Za-z0-9_./:-]+)$",
+      "safe_to_execute": false
+    },
+    "✅": {
+      "action_id": "pipeline.approve",
+      "command": "pipeline:approve",
+      "default_args": {
+        "auto": "true"
+      },
+      "safe_to_execute": false
+    },
+    "❌": {
+      "action_id": "pipeline.abort",
+      "command": "pipeline:abort",
+      "arg_pattern": "^(?P<msg>.+)$",
+      "safe_to_execute": false
+    },
+    "🔍": {
+      "action_id": "debug.trace",
+      "command": "debug:trace",
+      "default_args": {
+        "depth": "10"
+      },
+      "safe_to_execute": false
+    },
+    "📤": {
+      "action_id": "artifact.export",
+      "command": "artifact:export",
+      "arg_pattern": "^(?P<out>.+)$",
+      "safe_to_execute": false
+    },
+    "📥": {
+      "action_id": "logs.collect",
+      "command": "logs:collect",
+      "default_args": {
+        "since": "24h"
+      },
+      "safe_to_execute": false
+    },
+    "🧭": {
+      "action_id": "planner.plan",
+      "command": "planner:plan",
+      "default_args": {
+        "horizon": "7d"
+      },
+      "safe_to_execute": false
+    },
+    "🪄": {
+      "action_id": "magic.optimize",
+      "command": "magic:optimize",
+      "arg_pattern": "^(?P<budget>.+)$",
+      "safe_to_execute": false
+    },
+    "💾": {
+      "action_id": "state.save",
+      "command": "state:save",
+      "arg_pattern": "^(?P<tag>[A-Za-z0-9_./:-]+)$",
+      "safe_to_execute": false
+    },
+    "🗑️": {
+      "action_id": "cleanup.prune",
+      "command": "cleanup:prune",
+      "default_args": {
+        "older_than": "30d"
+      },
+      "safe_to_execute": false
+    },
+    "🧿": {
+      "action_id": "audit.security",
+      "command": "audit:security",
+      "default_args": {
+        "full_scan": "true"
+      },
+      "safe_to_execute": false
+    },
+    "🎯": {
+      "action_id": "goal.set",
+      "command": "goal:set",
+      "arg_pattern": "^(?P<kpi>[^\\s]+)\\s+(?P<value>.+)$",
+      "safe_to_execute": false
+    },
+    "🔔": {
+      "action_id": "notify.team",
+      "command": "notify:team",
+      "arg_pattern": "^(?P<chan>[^\\s]+)\\s+(?P<msg>.+)$",
+      "safe_to_execute": false
+    },
+    "🌈💎🔥🧠🔀⚡": {
+      "action_id": "pipeline.canonical_full",
+      "command": "pipeline:canonical_full",
+      "default_args": {
+        "profile": "hyperflow_full",
+        "canonical": "true"
+      },
+      "safe_to_execute": false
+    },
+    "🌈💎🔥🧠⚡🔀": {
+      "action_id": "pipeline.canonical_full",
+      "command": "pipeline:canonical_full",
+      "default_args": {
+        "profile": "hyperflow_full_legacy_reversed_tail",
+        "canonical": "false",
+        "deprecated": "true"
+      },
+      "safe_to_execute": false
+    }
+  }
+}

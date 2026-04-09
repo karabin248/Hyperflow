@@ -1,0 +1,524 @@
+{
+  "timestamp": "2026-03-29T00:00:00+00:00",
+  "contract_version": "1.0.0",
+  "run_id": "run-trace-freeze-001",
+  "raw_input": "🌈💎🔥🧠🔀⚡ Task: prepare an MVP rollout plan",
+  "intent": "planning",
+  "mode": "fusion",
+  "output_type": "plan",
+  "output_subtype": "plan",
+  "intensity": "high",
+  "observer_status": "OK",
+  "threshold_status": "OK",
+  "confidence": "high",
+  "summary": "Hyperflow prepared a structured plan focused on task scope, priorities, and execution flow using operations: perceive, extract_core, set_direction, synthesize, generate_options, choose.",
+  "next_step": "expand",
+  "matched_combo": "🌈💎🔥🧠🔀⚡",
+  "matched_preset": null,
+  "resolved_mps_mode": 5,
+  "resolved_edde_phase": [
+    "scan",
+    "extract",
+    "build",
+    "reason",
+    "remix",
+    "deliver"
+  ],
+  "resolved_output_types": [
+    "framework",
+    "json",
+    "plan",
+    "code_structure",
+    "structured_explanation",
+    "variants"
+  ],
+  "resolved_output_subtypes": [
+    "framework",
+    "json",
+    "plan",
+    "code_structure",
+    "structured_explanation",
+    "variants"
+  ],
+  "resolution_policy": "longest_match_first",
+  "parser_decisions": [
+    {
+      "sequence": "🌈💎🔥🧠🔀⚡",
+      "kind": "combo_registry",
+      "name": "hyperflow_canonical_full_combo",
+      "status": "core",
+      "resolved_phase": [
+        "scan",
+        "extract",
+        "build",
+        "reason",
+        "remix",
+        "deliver"
+      ],
+      "runtime_output": [
+        "blueprint",
+        "json",
+        "plan",
+        "blueprint",
+        "spec",
+        "answer"
+      ]
+    }
+  ],
+  "primary_status": "core",
+  "action_route_ids": [
+    "pipeline.canonical_full"
+  ],
+  "action_route_errors": [],
+  "edde_phase": "OUTPUT",
+  "edde_next_step": "DECIDE",
+  "config_versions": {
+    "edde_schema": "hyperflow/edde-core/v1",
+    "mps_schema": "hyperflow/mps-regulator/v1",
+    "shell_schema": "hyperflow/system/v1",
+    "emoji_schema": "hyperflow/canonical-emoji-library/v1",
+    "edde_version": "1.0.0",
+    "mps_version": "0.5.0",
+    "shell_version": "0.9.0",
+    "emoji_version": "1.4.0",
+    "action_router_schema": "hyperflow/emoji-action-router/v1",
+    "action_router_version": "1.0.0"
+  },
+  "replay_contract_version": "1.0.0",
+  "replay_output": {
+    "kind": "plan",
+    "intent": "planning",
+    "mode": "fusion",
+    "summary": "Hyperflow prepared a structured plan focused on task scope, priorities, and execution flow using operations: perceive, extract_core, set_direction, synthesize, generate_options, choose.",
+    "confidence": "high",
+    "observer_status": "OK",
+    "next_step": "expand",
+    "contract_version": "1.0.0",
+    "output_subtype": "plan",
+    "insights": [
+      "Primary intent resolved as planning.",
+      "Mode selected: fusion.",
+      "Output type expected: plan."
+    ],
+    "actions": [
+      "Run operation: perceive",
+      "Run operation: extract_core",
+      "Run operation: set_direction",
+      "Run operation: synthesize",
+      "Run operation: generate_options",
+      "Run operation: choose"
+    ],
+    "plan": [
+      "extract task",
+      "identify scope",
+      "order priorities",
+      "synthesize final plan"
+    ],
+    "run_id": "run-trace-freeze-001",
+    "observer_contract": {
+      "status": "OK",
+      "observer_status": "OK",
+      "reason": "within_threshold",
+      "issues": [],
+      "recommended_action": "continue"
+    },
+    "edde_contract": {
+      "schema": "hyperflow/edde-contract/v1",
+      "contract_version": "1.0.0",
+      "trace_id": "run-trace-freeze-001",
+      "status": "ok",
+      "input": {
+        "raw_prompt": "🌈💎🔥🧠🔀⚡ Task: prepare an MVP rollout plan",
+        "emoji_run": "🌈💎🔥🧠🔀⚡",
+        "core_text": "Task: prepare an MVP rollout plan"
+      },
+      "parser": {
+        "tokens": [
+          "🌈",
+          "💎",
+          "🔥",
+          "🧠",
+          "🔀",
+          "⚡"
+        ],
+        "matched_combo": "🌈💎🔥🧠🔀⚡",
+        "matched_preset": null,
+        "matched_sequences": [
+          "🌈💎🔥🧠🔀⚡"
+        ],
+        "unmatched_atoms": [],
+        "resolved_mps_mode": 5,
+        "resolved_edde_phase": [
+          "scan",
+          "extract",
+          "build",
+          "reason",
+          "remix",
+          "deliver"
+        ],
+        "resolved_output_types": [
+          "framework",
+          "json",
+          "plan",
+          "code_structure",
+          "structured_explanation",
+          "variants"
+        ],
+        "runtime_output_types": [
+          "blueprint",
+          "json",
+          "plan",
+          "spec",
+          "answer"
+        ],
+        "resolved_output_subtypes": [
+          "framework",
+          "json",
+          "plan",
+          "code_structure",
+          "structured_explanation",
+          "variants"
+        ],
+        "primary_name": "hyperflow_canonical_full_combo",
+        "primary_match_type": "combo_registry",
+        "primary_status": "core",
+        "resolution_policy": "longest_match_first",
+        "parser_decisions": [
+          {
+            "sequence": "🌈💎🔥🧠🔀⚡",
+            "kind": "combo_registry",
+            "name": "hyperflow_canonical_full_combo",
+            "status": "core",
+            "resolved_phase": [
+              "scan",
+              "extract",
+              "build",
+              "reason",
+              "remix",
+              "deliver"
+            ],
+            "runtime_output": [
+              "blueprint",
+              "json",
+              "plan",
+              "blueprint",
+              "spec",
+              "answer"
+            ]
+          }
+        ],
+        "trace": [
+          {
+            "kind": "combo_registry",
+            "name": "hyperflow_canonical_full_combo",
+            "emoji": "🌈💎🔥🧠🔀⚡",
+            "status": "core",
+            "mps_mode": 5,
+            "edde_phase": [
+              "scan",
+              "extract",
+              "build",
+              "reason",
+              "remix",
+              "deliver"
+            ],
+            "expected_output": [
+              "framework",
+              "json",
+              "plan",
+              "code_structure",
+              "structured_explanation",
+              "variants"
+            ],
+            "runtime_output": [
+              "blueprint",
+              "json",
+              "plan",
+              "blueprint",
+              "spec",
+              "answer"
+            ],
+            "runtime_subtype": [
+              "framework",
+              "json",
+              "plan",
+              "code_structure",
+              "structured_explanation",
+              "variants"
+            ]
+          }
+        ],
+        "action_routes": [
+          {
+            "emoji": "🌈💎🔥🧠🔀⚡",
+            "action_id": "pipeline.canonical_full",
+            "signal": "🌈💎🔥🧠🔀⚡",
+            "command": "pipeline:canonical_full",
+            "segment": "Task: prepare an MVP rollout plan",
+            "arguments": {
+              "profile": "hyperflow_full",
+              "canonical": "true"
+            },
+            "missing_args": [],
+            "safe_to_execute": false,
+            "handler_name": null,
+            "target": null
+          }
+        ],
+        "action_route_errors": []
+      },
+      "timeline": [
+        {
+          "phase": "DECIDE",
+          "trace_id": "run-trace-freeze-001",
+          "input": {
+            "task_core": "Task: prepare an MVP rollout plan",
+            "tokens": [
+              "🌈",
+              "💎",
+              "🔥",
+              "🧠",
+              "🔀",
+              "⚡"
+            ],
+            "constraints": [],
+            "scope": "global"
+          },
+          "plan": [
+            "extract task",
+            "identify scope",
+            "order priorities",
+            "synthesize final plan"
+          ],
+          "results": {},
+          "assessment": {
+            "strategy": "planning:fusion",
+            "reasoning_depth": "high",
+            "selected_path": "planning",
+            "resolved_edde_phase_hints": [
+              "scan",
+              "extract",
+              "build",
+              "reason",
+              "remix",
+              "deliver"
+            ]
+          },
+          "constraints": {
+            "safe": false,
+            "sandboxed": true,
+            "llm_no_direct_ffi": true
+          },
+          "next_step": "DO"
+        },
+        {
+          "phase": "DO",
+          "trace_id": "run-trace-freeze-001",
+          "input": {},
+          "plan": [],
+          "results": {
+            "draft_result": "Hyperflow executed intent 'planning' in mode 'fusion' with operations: perceive, extract_core, set_direction, synthesize, generate_options, choose.",
+            "partial_insights": [
+              "Primary intent resolved as planning.",
+              "Mode selected: fusion.",
+              "Output type expected: plan."
+            ],
+            "actions": [
+              "Run operation: perceive",
+              "Run operation: extract_core",
+              "Run operation: set_direction",
+              "Run operation: synthesize",
+              "Run operation: generate_options",
+              "Run operation: choose"
+            ],
+            "coverage_status": "ok",
+            "action_execution": [
+              {
+                "signal": "🌈💎🔥🧠🔀⚡",
+                "action_id": "pipeline.canonical_full",
+                "target": null,
+                "scope": "global",
+                "executed": false
+              }
+            ]
+          },
+          "assessment": {
+            "executed_operations": [
+              "perceive",
+              "extract_core",
+              "set_direction",
+              "synthesize",
+              "generate_options",
+              "choose"
+            ],
+            "active_target": null
+          },
+          "constraints": {
+            "safe": false,
+            "sandboxed": true,
+            "llm_no_direct_ffi": true
+          },
+          "next_step": "OUTPUT"
+        },
+        {
+          "phase": "OUTPUT",
+          "trace_id": "run-trace-freeze-001",
+          "input": {},
+          "plan": [],
+          "results": {
+            "observer_status": "OK",
+            "actions": [
+              "Run operation: perceive",
+              "Run operation: extract_core",
+              "Run operation: set_direction",
+              "Run operation: synthesize",
+              "Run operation: generate_options",
+              "Run operation: choose"
+            ]
+          },
+          "assessment": {
+            "summary": "Hyperflow prepared a structured plan focused on task scope, priorities, and execution flow using operations: perceive, extract_core, set_direction, synthesize, generate_options, choose.",
+            "final_insights": [
+              "Primary intent resolved as planning.",
+              "Mode selected: fusion.",
+              "Output type expected: plan."
+            ],
+            "confidence": "high",
+            "observer_status": "OK",
+            "observer_contract": {
+              "status": "OK",
+              "observer_status": "OK",
+              "reason": "within_threshold",
+              "issues": [],
+              "recommended_action": "continue"
+            }
+          },
+          "constraints": {
+            "safe": false,
+            "sandboxed": true,
+            "llm_no_direct_ffi": true
+          },
+          "next_step": "DECIDE"
+        }
+      ],
+      "runtime": {
+        "flow": [
+          "DECIDE",
+          "DO",
+          "OUTPUT"
+        ],
+        "pipeline_path": [
+          "scan",
+          "extract",
+          "cluster",
+          "interpret",
+          "orchestrate",
+          "remix",
+          "output"
+        ],
+        "pipeline_stage_map": {
+          "extract": [
+            "scan",
+            "extract"
+          ],
+          "discover": [
+            "cluster"
+          ],
+          "do": [
+            "interpret",
+            "orchestrate",
+            "remix"
+          ],
+          "evaluate": [
+            "output"
+          ]
+        },
+        "mps": {
+          "level": 6,
+          "risk_level": "high",
+          "profile": {
+            "name": "Satellite Ops",
+            "depth": "very_high",
+            "observer_rigor": "very_high",
+            "risk_state": "high",
+            "execution_policy": "satellite_ops",
+            "notes": "satellite agent orchestration"
+          }
+        },
+        "observer": {
+          "status": "OK",
+          "observer_status": "OK",
+          "reason": "within_threshold",
+          "issues": [],
+          "recommended_action": "continue"
+        },
+        "graph": {
+          "summary": {
+            "node_count": 0,
+            "edge_count": 0,
+            "node_types": {},
+            "top_intents": [],
+            "top_modes": [],
+            "top_operations": [],
+            "recent_summaries": []
+          },
+          "analytics": {
+            "run_count": 0,
+            "node_count": 0,
+            "edge_count": 0,
+            "top_intents": [],
+            "top_modes": [],
+            "top_operations": [],
+            "top_output_types": [],
+            "top_intent_mode_pairs": [],
+            "top_intent_operation_pairs": [],
+            "recent_run_summaries": [],
+            "interpretation": []
+          }
+        }
+      },
+      "output": {
+        "kind": "plan",
+        "payload": {
+          "kind": "plan",
+          "intent": "planning",
+          "mode": "fusion",
+          "summary": "Hyperflow prepared a structured plan focused on task scope, priorities, and execution flow using operations: perceive, extract_core, set_direction, synthesize, generate_options, choose.",
+          "confidence": "high",
+          "observer_status": "OK",
+          "next_step": "expand",
+          "contract_version": "1.0.0",
+          "output_subtype": "plan",
+          "insights": [
+            "Primary intent resolved as planning.",
+            "Mode selected: fusion.",
+            "Output type expected: plan."
+          ],
+          "actions": [
+            "Run operation: perceive",
+            "Run operation: extract_core",
+            "Run operation: set_direction",
+            "Run operation: synthesize",
+            "Run operation: generate_options",
+            "Run operation: choose"
+          ],
+          "plan": [
+            "extract task",
+            "identify scope",
+            "order priorities",
+            "synthesize final plan"
+          ],
+          "run_id": "run-trace-freeze-001",
+          "observer_contract": {
+            "status": "OK",
+            "observer_status": "OK",
+            "reason": "within_threshold",
+            "issues": [],
+            "recommended_action": "continue"
+          }
+        }
+      },
+      "errors": []
+    }
+  }
+}

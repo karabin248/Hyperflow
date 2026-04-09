@@ -1,0 +1,3 @@
+include LICENSE
+recursive-include hyperflow/configs *.json
+recursive-include hyperflow/resources/contracts *.json

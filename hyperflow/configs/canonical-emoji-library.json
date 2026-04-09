@@ -1,0 +1,2942 @@
+{
+  "schema": "hyperflow/canonical-emoji-library/v1",
+  "library": {
+    "name": "CANONICAL_EMOJI_CONTROL_LIBRARY",
+    "version": "1.4.0",
+    "purpose": "Deduplicated Hyperflow input-layer library with combo-first parser integration and merged beta/gamma extension packs.",
+    "status": "active"
+  },
+  "principles": {
+    "atomic_rule": "A single emoji represents an atomic signal.",
+    "combo_rule": "A sequence of emojis represents an execution pipeline or behavior preset.",
+    "governance_rule": "Emojis do not define system entities. Emojis activate behaviors of entities defined in EDDE, MPS, Observer, and System Schema.",
+    "canonical_rule": "Canonical meanings are defined here; extensions must be explicitly versioned.",
+    "parser_rule": "Parsing is combo-first: the parser must resolve the most specific combo before falling back to presets or atomic signals."
+  },
+  "integration": {
+    "consumed_by": [
+      "prompt-loader",
+      "emoji-parser",
+      "agent-orchestrator",
+      "knowledge-mapper",
+      "ui-control-surface"
+    ],
+    "related_artifacts": [
+      "configs/edde-core.json",
+      "configs/system-shell.json",
+      "configs/mps-regulator.json",
+      "configs/emoji-action-router.json",
+      "configs/canonical-emoji-library.json"
+    ]
+  },
+  "status_enum": [
+    "core",
+    "boost",
+    "experimental"
+  ],
+  "output_type_enum": [
+    "summary",
+    "insight",
+    "structured_explanation",
+    "framework",
+    "json",
+    "markdown",
+    "plan",
+    "ideas",
+    "variants",
+    "audit",
+    "risks",
+    "fixes",
+    "system_flow",
+    "code_structure",
+    "visual_analysis"
+  ],
+  "parser_integration": {
+    "mode": "combo_first",
+    "lookup_order": [
+      "combo_registry",
+      "short_presets",
+      "long_presets",
+      "atomic_registry"
+    ],
+    "matching_strategy": "longest_match_first",
+    "fallback_behavior": "atomic",
+    "conflict_resolution": "prefer_higher_specificity_then_core_status",
+    "combo_delimiters": [
+      " ",
+      "\n",
+      "\t",
+      ",",
+      ";",
+      "|"
+    ],
+    "normalization": {
+      "trim_whitespace": true,
+      "collapse_duplicate_delimiters": true,
+      "preserve_emoji_order": true,
+      "unicode_normalization": "NFC"
+    },
+    "resolution_rules": {
+      "mps_mode_priority": [
+        "combo_registry",
+        "short_presets",
+        "long_presets",
+        "atomic_registry"
+      ],
+      "edde_phase_priority": [
+        "combo_registry",
+        "short_presets",
+        "long_presets",
+        "atomic_registry"
+      ],
+      "expected_output_priority": [
+        "combo_registry",
+        "short_presets",
+        "long_presets",
+        "atomic_registry"
+      ],
+      "status_priority": [
+        "core",
+        "boost",
+        "experimental"
+      ]
+    },
+    "parser_outputs": {
+      "return_matched_combo": true,
+      "return_unmatched_atoms": true,
+      "return_resolved_mps_mode": true,
+      "return_resolved_edde_phase": true,
+      "return_resolved_output_types": true,
+      "return_trace": true
+    }
+  },
+  "categories": [
+    "COSMIC_MYSTICAL",
+    "PARTY_FUN",
+    "NATURE_ELEMENTS",
+    "TECH_FUTURE",
+    "EMOTIONS",
+    "TRAVEL_ADVENTURE",
+    "WORK_OFFICE",
+    "HEALTH_WELLNESS",
+    "ANIMAL_KINGDOM",
+    "MIXED_CULTURE_SYMBOLS",
+    "CORE_SYSTEM",
+    "RESEARCH_DATA",
+    "SAFETY_CONTROL",
+    "ORCHESTRATION_FLOW",
+    "CREATIVE_EXPRESSION"
+  ],
+  "atomic_registry": {
+    "🌈": {
+      "name": "perceive",
+      "category": "CORE_SYSTEM",
+      "semantic_cluster": [
+        "exploration",
+        "scan",
+        "breadth",
+        "context expansion"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "scan"
+      ],
+      "expected_output": [
+        "summary",
+        "structured_explanation"
+      ],
+      "status": "core"
+    },
+    "💎": {
+      "name": "extract_core",
+      "category": "CORE_SYSTEM",
+      "semantic_cluster": [
+        "essence",
+        "distillation",
+        "canonical form",
+        "signal over noise"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "extract"
+      ],
+      "expected_output": [
+        "structured_explanation",
+        "framework",
+        "insight"
+      ],
+      "status": "core"
+    },
+    "🔥": {
+      "name": "set_direction",
+      "category": "CORE_SYSTEM",
+      "semantic_cluster": [
+        "construction",
+        "generation",
+        "activation",
+        "output creation"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "build"
+      ],
+      "expected_output": [
+        "plan",
+        "framework",
+        "json"
+      ],
+      "status": "core"
+    },
+    "🧠": {
+      "name": "synthesize",
+      "category": "CORE_SYSTEM",
+      "semantic_cluster": [
+        "reasoning",
+        "analysis",
+        "deep logic",
+        "coherence"
+      ],
+      "default_mps": 5,
+      "default_edde_phase": [
+        "reason"
+      ],
+      "expected_output": [
+        "structured_explanation",
+        "framework",
+        "audit"
+      ],
+      "status": "core"
+    },
+    "⚡": {
+      "name": "choose",
+      "category": "CORE_SYSTEM",
+      "semantic_cluster": [
+        "delivery",
+        "speed",
+        "execution",
+        "concrete result"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "deliver"
+      ],
+      "expected_output": [
+        "plan",
+        "json",
+        "framework",
+        "code_structure"
+      ],
+      "status": "core"
+    },
+    "🔀": {
+      "name": "generate_options",
+      "category": "ORCHESTRATION_FLOW",
+      "semantic_cluster": [
+        "branching",
+        "remix",
+        "alternative paths",
+        "reroute"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "remix"
+      ],
+      "expected_output": [
+        "variants",
+        "ideas",
+        "system_flow"
+      ],
+      "status": "core"
+    },
+    "👁️": {
+      "name": "observe_validate",
+      "category": "SAFETY_CONTROL",
+      "semantic_cluster": [
+        "observation",
+        "validation",
+        "review",
+        "quality check"
+      ],
+      "default_mps": 5,
+      "default_edde_phase": [
+        "validate"
+      ],
+      "expected_output": [
+        "audit",
+        "risks",
+        "fixes"
+      ],
+      "status": "core"
+    },
+    "🧱": {
+      "name": "structure_formalize",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "structure",
+        "formalization",
+        "schema",
+        "organization"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "structure"
+      ],
+      "expected_output": [
+        "json",
+        "framework",
+        "plan"
+      ],
+      "status": "core"
+    },
+    "📦": {
+      "name": "package_output",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "packaging",
+        "final output",
+        "artifact",
+        "delivery bundle"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "package"
+      ],
+      "expected_output": [
+        "json",
+        "markdown",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    "🔍": {
+      "name": "inspect_search",
+      "category": "RESEARCH_DATA",
+      "semantic_cluster": [
+        "inspection",
+        "search",
+        "detail",
+        "evidence gathering"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "scan",
+        "extract"
+      ],
+      "expected_output": [
+        "summary",
+        "insight",
+        "audit"
+      ],
+      "status": "core"
+    },
+    "📊": {
+      "name": "data_structure",
+      "category": "RESEARCH_DATA",
+      "semantic_cluster": [
+        "data",
+        "metrics",
+        "analysis",
+        "evidence"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "extract",
+        "reason"
+      ],
+      "expected_output": [
+        "structured_explanation",
+        "audit",
+        "plan"
+      ],
+      "status": "boost"
+    },
+    "📚": {
+      "name": "knowledge_base",
+      "category": "RESEARCH_DATA",
+      "semantic_cluster": [
+        "knowledge",
+        "references",
+        "study",
+        "context memory"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "scan"
+      ],
+      "expected_output": [
+        "summary",
+        "insight"
+      ],
+      "status": "boost"
+    },
+    "💡": {
+      "name": "idea_spark",
+      "category": "CREATIVE_EXPRESSION",
+      "semantic_cluster": [
+        "idea",
+        "concept",
+        "insight",
+        "creative jump"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "remix",
+        "build"
+      ],
+      "expected_output": [
+        "ideas",
+        "variants"
+      ],
+      "status": "boost"
+    },
+    "⚙️": {
+      "name": "system_orchestration",
+      "category": "TECH_FUTURE",
+      "semantic_cluster": [
+        "system",
+        "orchestration",
+        "runtime",
+        "mechanism"
+      ],
+      "default_mps": 5,
+      "default_edde_phase": [
+        "orchestrate"
+      ],
+      "expected_output": [
+        "system_flow",
+        "framework",
+        "plan"
+      ],
+      "status": "core"
+    },
+    "🛡️": {
+      "name": "safety_guard",
+      "category": "SAFETY_CONTROL",
+      "semantic_cluster": [
+        "safety",
+        "protection",
+        "guardrails",
+        "mitigation"
+      ],
+      "default_mps": 5,
+      "default_edde_phase": [
+        "validate",
+        "mitigate"
+      ],
+      "expected_output": [
+        "audit",
+        "risks",
+        "fixes"
+      ],
+      "status": "core"
+    },
+    "⚠️": {
+      "name": "alert_risk",
+      "category": "SAFETY_CONTROL",
+      "semantic_cluster": [
+        "warning",
+        "risk",
+        "threshold",
+        "attention"
+      ],
+      "default_mps": 5,
+      "default_edde_phase": [
+        "validate"
+      ],
+      "expected_output": [
+        "risks",
+        "audit"
+      ],
+      "status": "core"
+    },
+    "🎨": {
+      "name": "creative_style",
+      "category": "CREATIVE_EXPRESSION",
+      "semantic_cluster": [
+        "style",
+        "design",
+        "creative rendering",
+        "expression"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "build"
+      ],
+      "expected_output": [
+        "ideas",
+        "framework",
+        "markdown"
+      ],
+      "status": "boost"
+    },
+    "🌌": {
+      "name": "cosmic_scope",
+      "category": "COSMIC_MYSTICAL",
+      "semantic_cluster": [
+        "macro scope",
+        "big picture",
+        "cosmic framing",
+        "abstract expansion"
+      ],
+      "default_mps": 2,
+      "default_edde_phase": [
+        "scan"
+      ],
+      "expected_output": [
+        "insight",
+        "summary"
+      ],
+      "status": "experimental"
+    },
+    "🧬": {
+      "name": "evolution_pattern",
+      "category": "COSMIC_MYSTICAL",
+      "semantic_cluster": [
+        "evolution",
+        "pattern",
+        "structure growth",
+        "adaptive form"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "extract",
+        "reason"
+      ],
+      "expected_output": [
+        "framework",
+        "insight"
+      ],
+      "status": "boost"
+    },
+    "🚀": {
+      "name": "launch_execute",
+      "category": "TECH_FUTURE",
+      "semantic_cluster": [
+        "launch",
+        "push",
+        "deployment",
+        "forward momentum"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "deliver"
+      ],
+      "expected_output": [
+        "plan",
+        "framework",
+        "system_flow"
+      ],
+      "status": "boost"
+    },
+    "🔗": {
+      "name": "link_dependency",
+      "category": "ORCHESTRATION_FLOW",
+      "semantic_cluster": [
+        "link",
+        "dependency",
+        "join",
+        "relationship binding"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "structure",
+        "orchestrate"
+      ],
+      "expected_output": [
+        "framework",
+        "system_flow"
+      ],
+      "status": "core"
+    },
+    "🧹": {
+      "name": "sweep_cleanup",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "cleanup",
+        "sweep",
+        "pruning",
+        "post-processing"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "extract",
+        "mitigate"
+      ],
+      "expected_output": [
+        "fixes",
+        "summary"
+      ],
+      "status": "boost"
+    },
+    "🧼": {
+      "name": "sanitize_clean",
+      "category": "SAFETY_CONTROL",
+      "semantic_cluster": [
+        "sanitize",
+        "clean state",
+        "decontaminate",
+        "safe reset"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "validate",
+        "mitigate"
+      ],
+      "expected_output": [
+        "fixes",
+        "audit"
+      ],
+      "status": "core"
+    },
+    "📥": {
+      "name": "intake_ingest",
+      "category": "RESEARCH_DATA",
+      "semantic_cluster": [
+        "ingest",
+        "input pull",
+        "capture",
+        "intake stream"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "scan",
+        "extract"
+      ],
+      "expected_output": [
+        "summary",
+        "json"
+      ],
+      "status": "core"
+    },
+    "📤": {
+      "name": "emit_dispatch",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "dispatch",
+        "send out",
+        "emit",
+        "external output"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "package",
+        "deliver"
+      ],
+      "expected_output": [
+        "markdown",
+        "framework",
+        "plan"
+      ],
+      "status": "boost"
+    },
+    "🗳️": {
+      "name": "branch_select",
+      "category": "ORCHESTRATION_FLOW",
+      "semantic_cluster": [
+        "selection",
+        "branch decision",
+        "choice point",
+        "routing decision"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "reason",
+        "remix"
+      ],
+      "expected_output": [
+        "variants",
+        "plan"
+      ],
+      "status": "boost"
+    },
+    "🧾": {
+      "name": "trace_record",
+      "category": "RESEARCH_DATA",
+      "semantic_cluster": [
+        "record",
+        "receipt",
+        "trace log",
+        "evidence note"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "validate",
+        "package"
+      ],
+      "expected_output": [
+        "audit",
+        "markdown",
+        "json"
+      ],
+      "status": "core"
+    },
+    "📌": {
+      "name": "fix_anchor",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "pin",
+        "anchor",
+        "fixed point",
+        "important hold"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "structure"
+      ],
+      "expected_output": [
+        "plan",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    "📁": {
+      "name": "workspace_open",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "workspace",
+        "container",
+        "open set",
+        "working folder"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "structure",
+        "package"
+      ],
+      "expected_output": [
+        "json",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    "📂": {
+      "name": "expand_folder",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "expand",
+        "open context",
+        "nested contents",
+        "unfold structure"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "scan",
+        "structure"
+      ],
+      "expected_output": [
+        "summary",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    "🗄️": {
+      "name": "vault_index",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "index",
+        "vault",
+        "archive system",
+        "organized storage"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "structure",
+        "package"
+      ],
+      "expected_output": [
+        "json",
+        "framework"
+      ],
+      "status": "core"
+    },
+    "🎚️": {
+      "name": "tune_levels",
+      "category": "TECH_FUTURE",
+      "semantic_cluster": [
+        "tuning",
+        "calibration",
+        "parameter control",
+        "adjustment"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "orchestrate",
+        "validate"
+      ],
+      "expected_output": [
+        "framework",
+        "system_flow"
+      ],
+      "status": "core"
+    },
+    "⏱️": {
+      "name": "tempo_limit",
+      "category": "SAFETY_CONTROL",
+      "semantic_cluster": [
+        "timing",
+        "pace",
+        "limit",
+        "deadline pressure"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "validate",
+        "deliver"
+      ],
+      "expected_output": [
+        "plan",
+        "risks"
+      ],
+      "status": "boost"
+    },
+    "🕰️": {
+      "name": "timeline_context",
+      "category": "RESEARCH_DATA",
+      "semantic_cluster": [
+        "timeline",
+        "history",
+        "temporal frame",
+        "sequence memory"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "scan",
+        "structure"
+      ],
+      "expected_output": [
+        "summary",
+        "plan"
+      ],
+      "status": "boost"
+    },
+    "♻️": {
+      "name": "recycle_iterate",
+      "category": "ORCHESTRATION_FLOW",
+      "semantic_cluster": [
+        "iteration",
+        "reuse",
+        "loopback",
+        "refinement cycle"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "remix",
+        "build"
+      ],
+      "expected_output": [
+        "variants",
+        "fixes"
+      ],
+      "status": "core"
+    },
+    "🧊": {
+      "name": "freeze_stabilize",
+      "category": "SAFETY_CONTROL",
+      "semantic_cluster": [
+        "freeze",
+        "stabilize",
+        "hold state",
+        "cooldown"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "validate",
+        "mitigate"
+      ],
+      "expected_output": [
+        "risks",
+        "fixes"
+      ],
+      "status": "core"
+    },
+    "🌋": {
+      "name": "pressure_release",
+      "category": "NATURE_ELEMENTS",
+      "semantic_cluster": [
+        "pressure",
+        "eruption",
+        "overflow",
+        "release event"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "remix",
+        "deliver"
+      ],
+      "expected_output": [
+        "ideas",
+        "variants"
+      ],
+      "status": "experimental"
+    },
+    "🌩️": {
+      "name": "shock_signal",
+      "category": "NATURE_ELEMENTS",
+      "semantic_cluster": [
+        "shock",
+        "sudden signal",
+        "disruption",
+        "high-energy interruption"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "scan",
+        "remix"
+      ],
+      "expected_output": [
+        "insight",
+        "ideas"
+      ],
+      "status": "experimental"
+    },
+    "☀️": {
+      "name": "clarity_expose",
+      "category": "NATURE_ELEMENTS",
+      "semantic_cluster": [
+        "clarity",
+        "illumination",
+        "exposure",
+        "visibility"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "scan",
+        "extract"
+      ],
+      "expected_output": [
+        "summary",
+        "insight"
+      ],
+      "status": "boost"
+    },
+    "🌑": {
+      "name": "dark_probe",
+      "category": "COSMIC_MYSTICAL",
+      "semantic_cluster": [
+        "unknown zone",
+        "dark context",
+        "hidden layer",
+        "low visibility probe"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "scan",
+        "reason"
+      ],
+      "expected_output": [
+        "insight",
+        "risks"
+      ],
+      "status": "experimental"
+    },
+    "🪵": {
+      "name": "raw_material",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "base material",
+        "raw input",
+        "foundation stock",
+        "unprocessed resource"
+      ],
+      "default_mps": 2,
+      "default_edde_phase": [
+        "extract",
+        "build"
+      ],
+      "expected_output": [
+        "ideas",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    "🔋": {
+      "name": "energy_reserve",
+      "category": "HEALTH_WELLNESS",
+      "semantic_cluster": [
+        "energy",
+        "charge",
+        "capacity",
+        "reserve power"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "build",
+        "deliver"
+      ],
+      "expected_output": [
+        "plan",
+        "system_flow"
+      ],
+      "status": "boost"
+    },
+    "🪫": {
+      "name": "low_power_alert",
+      "category": "SAFETY_CONTROL",
+      "semantic_cluster": [
+        "low power",
+        "depletion",
+        "capacity warning",
+        "fatigue signal"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "validate",
+        "mitigate"
+      ],
+      "expected_output": [
+        "risks",
+        "plan"
+      ],
+      "status": "boost"
+    },
+    "🧿": {
+      "name": "anomaly_watch",
+      "category": "SAFETY_CONTROL",
+      "semantic_cluster": [
+        "anomaly watch",
+        "oddity detection",
+        "protective observation",
+        "pattern suspicion"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "scan",
+        "validate"
+      ],
+      "expected_output": [
+        "audit",
+        "risks"
+      ],
+      "status": "experimental"
+    },
+    "🪬": {
+      "name": "ward_signal",
+      "category": "MIXED_CULTURE_SYMBOLS",
+      "semantic_cluster": [
+        "ward",
+        "protective mark",
+        "boundary reinforcement",
+        "symbolic safeguard"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "validate",
+        "mitigate"
+      ],
+      "expected_output": [
+        "risks",
+        "fixes"
+      ],
+      "status": "experimental"
+    },
+    "🕯️": {
+      "name": "focus_flame",
+      "category": "COSMIC_MYSTICAL",
+      "semantic_cluster": [
+        "focus",
+        "signal flame",
+        "quiet concentration",
+        "symbolic attention"
+      ],
+      "default_mps": 2,
+      "default_edde_phase": [
+        "reason",
+        "extract"
+      ],
+      "expected_output": [
+        "summary",
+        "insight"
+      ],
+      "status": "experimental"
+    },
+    "📺": {
+      "name": "surface_view",
+      "category": "TECH_FUTURE",
+      "semantic_cluster": [
+        "surface",
+        "screen view",
+        "display context",
+        "visual output"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "scan",
+        "validate"
+      ],
+      "expected_output": [
+        "visual_analysis",
+        "summary"
+      ],
+      "status": "boost"
+    },
+    "🪛": {
+      "name": "fine_adjust",
+      "category": "TECH_FUTURE",
+      "semantic_cluster": [
+        "fine tuning",
+        "adjustment",
+        "small repair",
+        "precision fixing"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "build",
+        "validate"
+      ],
+      "expected_output": [
+        "fixes",
+        "code_structure"
+      ],
+      "status": "boost"
+    },
+    "🪃": {
+      "name": "bounce_back",
+      "category": "ORCHESTRATION_FLOW",
+      "semantic_cluster": [
+        "return path",
+        "bounce",
+        "feedback return",
+        "response loop"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "remix",
+        "deliver"
+      ],
+      "expected_output": [
+        "variants",
+        "summary"
+      ],
+      "status": "boost"
+    },
+    "🥽": {
+      "name": "safe_probe",
+      "category": "SAFETY_CONTROL",
+      "semantic_cluster": [
+        "protected inspection",
+        "shielded testing",
+        "careful probe",
+        "safe observation"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "validate",
+        "scan"
+      ],
+      "expected_output": [
+        "audit",
+        "visual_analysis"
+      ],
+      "status": "boost"
+    },
+    "🧩": {
+      "name": "modular_piece",
+      "category": "ORCHESTRATION_FLOW",
+      "semantic_cluster": [
+        "module",
+        "component",
+        "assembly",
+        "piecewise structure"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "structure",
+        "build"
+      ],
+      "expected_output": [
+        "framework",
+        "code_structure"
+      ],
+      "status": "core"
+    },
+    "🤖": {
+      "name": "agent_runtime",
+      "category": "TECH_FUTURE",
+      "semantic_cluster": [
+        "agent",
+        "automation",
+        "runtime execution",
+        "machine action"
+      ],
+      "default_mps": 5,
+      "default_edde_phase": [
+        "orchestrate",
+        "build"
+      ],
+      "expected_output": [
+        "system_flow",
+        "framework",
+        "plan"
+      ],
+      "status": "core"
+    },
+    "🕸️": {
+      "name": "mesh_network",
+      "category": "ORCHESTRATION_FLOW",
+      "semantic_cluster": [
+        "mesh",
+        "network",
+        "distributed links",
+        "connected graph"
+      ],
+      "default_mps": 5,
+      "default_edde_phase": [
+        "orchestrate",
+        "structure"
+      ],
+      "expected_output": [
+        "system_flow",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    "🚦": {
+      "name": "gate_signal",
+      "category": "SAFETY_CONTROL",
+      "semantic_cluster": [
+        "gate",
+        "traffic control",
+        "execution permission",
+        "flow constraint"
+      ],
+      "default_mps": 5,
+      "default_edde_phase": [
+        "validate",
+        "orchestrate"
+      ],
+      "expected_output": [
+        "audit",
+        "system_flow",
+        "plan"
+      ],
+      "status": "core"
+    },
+    "🧪": {
+      "name": "test_probe",
+      "category": "RESEARCH_DATA",
+      "semantic_cluster": [
+        "test",
+        "experiment",
+        "probe",
+        "verification trial"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "validate",
+        "reason"
+      ],
+      "expected_output": [
+        "audit",
+        "fixes",
+        "variants"
+      ],
+      "status": "core"
+    },
+    "📐": {
+      "name": "precision_geometry",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "precision",
+        "geometry",
+        "formal boundaries",
+        "layout constraints"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "structure",
+        "validate"
+      ],
+      "expected_output": [
+        "framework",
+        "visual_analysis",
+        "code_structure"
+      ],
+      "status": "boost"
+    },
+    "🪞": {
+      "name": "reflect_mirror",
+      "category": "COSMIC_MYSTICAL",
+      "semantic_cluster": [
+        "reflection",
+        "self-check",
+        "mirror signal",
+        "inward review"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "reason",
+        "extract"
+      ],
+      "expected_output": [
+        "insight",
+        "structured_explanation"
+      ],
+      "status": "experimental"
+    },
+    "🪐": {
+      "name": "orbital_context",
+      "category": "COSMIC_MYSTICAL",
+      "semantic_cluster": [
+        "orbital scale",
+        "macro context",
+        "system surroundings",
+        "remote framing"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "scan",
+        "orchestrate"
+      ],
+      "expected_output": [
+        "insight",
+        "system_flow"
+      ],
+      "status": "experimental"
+    },
+    "📡": {
+      "name": "signal_relay",
+      "category": "TECH_FUTURE",
+      "semantic_cluster": [
+        "signal",
+        "relay",
+        "telemetry",
+        "transmission"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "scan",
+        "orchestrate"
+      ],
+      "expected_output": [
+        "summary",
+        "system_flow",
+        "audit"
+      ],
+      "status": "boost"
+    },
+    "🛰️": {
+      "name": "satellite_probe",
+      "category": "TECH_FUTURE",
+      "semantic_cluster": [
+        "satellite",
+        "remote probe",
+        "external context",
+        "distributed sensing"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "scan",
+        "orchestrate"
+      ],
+      "expected_output": [
+        "insight",
+        "system_flow"
+      ],
+      "status": "boost"
+    },
+    "🎯": {
+      "name": "target_lock",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "target",
+        "precision goal",
+        "lock on",
+        "objective focus"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "extract",
+        "deliver"
+      ],
+      "expected_output": [
+        "plan",
+        "framework",
+        "structured_explanation"
+      ],
+      "status": "core"
+    },
+    "🏷️": {
+      "name": "label_classify",
+      "category": "RESEARCH_DATA",
+      "semantic_cluster": [
+        "label",
+        "classify",
+        "tagging",
+        "metadata binding"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "structure",
+        "package"
+      ],
+      "expected_output": [
+        "json",
+        "audit",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    "📎": {
+      "name": "attach_bind",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "attach",
+        "bind",
+        "context link",
+        "artifact connection"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "structure",
+        "package"
+      ],
+      "expected_output": [
+        "json",
+        "markdown",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    "🌊": {
+      "name": "wave_flow",
+      "category": "NATURE_ELEMENTS",
+      "semantic_cluster": [
+        "wave",
+        "flow",
+        "cyclic movement",
+        "continuous motion"
+      ],
+      "default_mps": 3,
+      "default_edde_phase": [
+        "orchestrate",
+        "remix"
+      ],
+      "expected_output": [
+        "system_flow",
+        "variants"
+      ],
+      "status": "boost"
+    },
+    "🌀": {
+      "name": "spiral_cycle",
+      "category": "NATURE_ELEMENTS",
+      "semantic_cluster": [
+        "spiral",
+        "cycle",
+        "iterative motion",
+        "recursive refinement"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "remix",
+        "reason"
+      ],
+      "expected_output": [
+        "variants",
+        "insight",
+        "system_flow"
+      ],
+      "status": "boost"
+    },
+    "🪢": {
+      "name": "constraint_knot",
+      "category": "ORCHESTRATION_FLOW",
+      "semantic_cluster": [
+        "constraint",
+        "binding",
+        "dependency knot",
+        "tight coupling"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "structure",
+        "validate"
+      ],
+      "expected_output": [
+        "framework",
+        "risks",
+        "visual_analysis"
+      ],
+      "status": "boost"
+    },
+    "🪙": {
+      "name": "value_token",
+      "category": "WORK_OFFICE",
+      "semantic_cluster": [
+        "value",
+        "unit of worth",
+        "economic signal",
+        "measurable target"
+      ],
+      "default_mps": 4,
+      "default_edde_phase": [
+        "extract",
+        "reason"
+      ],
+      "expected_output": [
+        "audit",
+        "plan",
+        "structured_explanation"
+      ],
+      "status": "boost"
+    },
+    "🔐": {
+      "name": "secure_lock",
+      "category": "SAFETY_CONTROL",
+      "semantic_cluster": [
+        "lock",
+        "secure boundary",
+        "hardening",
+        "closed state"
+      ],
+      "default_mps": 5,
+      "default_edde_phase": [
+        "validate",
+        "mitigate"
+      ],
+      "expected_output": [
+        "risks",
+        "audit",
+        "fixes"
+      ],
+      "status": "core"
+    },
+    "🧘": {
+      "name": "calm_center",
+      "category": "HEALTH_WELLNESS",
+      "semantic_cluster": [
+        "calm",
+        "centering",
+        "pause",
+        "regulation"
+      ],
+      "default_mps": 2,
+      "default_edde_phase": [
+        "reason",
+        "validate"
+      ],
+      "expected_output": [
+        "summary",
+        "fixes"
+      ],
+      "status": "experimental"
+    },
+    "🫁": {
+      "name": "breath_reset",
+      "category": "HEALTH_WELLNESS",
+      "semantic_cluster": [
+        "breath",
+        "reset",
+        "cooldown",
+        "capacity regulation"
+      ],
+      "default_mps": 2,
+      "default_edde_phase": [
+        "validate",
+        "mitigate"
+      ],
+      "expected_output": [
+        "summary",
+        "risks",
+        "fixes"
+      ],
+      "status": "experimental"
+    }
+  },
+  "combo_registry": {
+    "🌈💎": {
+      "name": "scan_then_core",
+      "purpose": "Quick understanding and extraction of the essence.",
+      "semantic_cluster": [
+        "exploration",
+        "distillation"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "scan",
+        "extract"
+      ],
+      "expected_output": [
+        "summary",
+        "insight"
+      ],
+      "status": "core"
+    },
+    "💎🧱": {
+      "name": "core_then_structure",
+      "purpose": "Distill the core and turn it into a formal structure.",
+      "semantic_cluster": [
+        "essence",
+        "formalization"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "extract",
+        "structure"
+      ],
+      "expected_output": [
+        "json",
+        "framework",
+        "plan"
+      ],
+      "status": "core"
+    },
+    "🌈💎🧠": {
+      "name": "deep_research_core",
+      "purpose": "Broad scan, core extraction, and deep reasoning.",
+      "semantic_cluster": [
+        "research",
+        "distillation",
+        "deep analysis"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "scan",
+        "extract",
+        "reason"
+      ],
+      "expected_output": [
+        "insight",
+        "structured_explanation",
+        "summary"
+      ],
+      "status": "core"
+    },
+    "🌈💎🔥": {
+      "name": "scan_extract_build",
+      "purpose": "From exploration to rapid solution construction.",
+      "semantic_cluster": [
+        "exploration",
+        "build",
+        "rapid synthesis"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "scan",
+        "extract",
+        "build"
+      ],
+      "expected_output": [
+        "framework",
+        "json",
+        "ideas"
+      ],
+      "status": "core"
+    },
+    "💎🧠🧱": {
+      "name": "core_reason_structure",
+      "purpose": "Turn the essence into a precise structural form.",
+      "semantic_cluster": [
+        "logic",
+        "formalization",
+        "schema"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "extract",
+        "reason",
+        "structure"
+      ],
+      "expected_output": [
+        "json",
+        "framework",
+        "structured_explanation"
+      ],
+      "status": "core"
+    },
+    "🌈💎🧠⚡": {
+      "name": "analyze_distill_deliver",
+      "purpose": "Analyze and deliver a concise concrete result.",
+      "semantic_cluster": [
+        "analysis",
+        "distillation",
+        "delivery"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "scan",
+        "extract",
+        "reason",
+        "deliver"
+      ],
+      "expected_output": [
+        "plan",
+        "framework",
+        "structured_explanation"
+      ],
+      "status": "core"
+    },
+    "🌈💎🧠🔀": {
+      "name": "deep_branching_analysis",
+      "purpose": "Analysis with variants and branching paths.",
+      "semantic_cluster": [
+        "analysis",
+        "branching",
+        "variants"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "scan",
+        "extract",
+        "reason",
+        "remix"
+      ],
+      "expected_output": [
+        "variants",
+        "ideas",
+        "insight"
+      ],
+      "status": "boost"
+    },
+    "💎🔥📦": {
+      "name": "core_build_package",
+      "purpose": "From essence to finished artifact.",
+      "semantic_cluster": [
+        "build",
+        "artifact",
+        "delivery"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "extract",
+        "build",
+        "package"
+      ],
+      "expected_output": [
+        "json",
+        "markdown",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    "🧠👁️💎": {
+      "name": "reason_validate_extract",
+      "purpose": "Logical review first, then validation, then core extraction.",
+      "semantic_cluster": [
+        "audit",
+        "validation",
+        "distillation"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "reason",
+        "validate",
+        "extract"
+      ],
+      "expected_output": [
+        "audit",
+        "risks",
+        "fixes"
+      ],
+      "status": "boost"
+    },
+    "🌈🔀🔥": {
+      "name": "explore_remix_build",
+      "purpose": "Creative transformation and construction of new directions.",
+      "semantic_cluster": [
+        "creativity",
+        "remix",
+        "generation"
+      ],
+      "mps_mode": 3,
+      "edde_phase": [
+        "scan",
+        "remix",
+        "build"
+      ],
+      "expected_output": [
+        "ideas",
+        "variants",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    "🧠👁️🛡️⚠️": {
+      "name": "safety_audit_stack",
+      "purpose": "Full validation, safety, and risk stack.",
+      "semantic_cluster": [
+        "audit",
+        "safety",
+        "risk"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "reason",
+        "validate",
+        "mitigate"
+      ],
+      "expected_output": [
+        "audit",
+        "risks",
+        "fixes"
+      ],
+      "status": "core"
+    },
+    "🧠⚙️🔀⚡": {
+      "name": "orchestration_sprint",
+      "purpose": "Coordinate, switch, and execute quickly.",
+      "semantic_cluster": [
+        "orchestration",
+        "routing",
+        "execution"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "orchestrate",
+        "remix",
+        "deliver"
+      ],
+      "expected_output": [
+        "system_flow",
+        "plan",
+        "framework"
+      ],
+      "status": "core"
+    },
+    "🎨🔥🌈💡": {
+      "name": "creative_sprint",
+      "purpose": "Fast creative generation mode.",
+      "semantic_cluster": [
+        "creativity",
+        "style",
+        "ideas"
+      ],
+      "mps_mode": 3,
+      "edde_phase": [
+        "scan",
+        "build",
+        "remix"
+      ],
+      "expected_output": [
+        "ideas",
+        "variants",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    "👁️🔍🧠🧱": {
+      "name": "visual_debug",
+      "purpose": "Analyze screens, layout, issues, and structure.",
+      "semantic_cluster": [
+        "visual analysis",
+        "debug",
+        "formalization"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "scan",
+        "reason",
+        "structure"
+      ],
+      "expected_output": [
+        "visual_analysis",
+        "fixes",
+        "structured_explanation"
+      ],
+      "status": "boost"
+    },
+    "🌈💎🔥🧠⚡": {
+      "name": "hyperflow_legacy_full_pipeline",
+      "purpose": "Legacy five-step full pipeline kept for backward compatibility; canonical full combo now includes options before choice.",
+      "semantic_cluster": [
+        "full system",
+        "analysis",
+        "build",
+        "reasoning",
+        "delivery"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "scan",
+        "extract",
+        "build",
+        "reason",
+        "deliver"
+      ],
+      "expected_output": [
+        "framework",
+        "json",
+        "plan",
+        "code_structure",
+        "structured_explanation"
+      ],
+      "status": "stable",
+      "canonical_execution_map": {
+        "🌈": "analysis -> requirements, context, constraints",
+        "💎": "core -> schema, rules, essence",
+        "🔥": "build -> module, structure, implementation",
+        "🧠": "reasoning -> edge cases, errors, consistency",
+        "⚡": "choose -> final result and commitment"
+      },
+      "notes": [
+        "Superseded as canonical full combo by 🌈💎🔥🧠🔀⚡."
+      ]
+    },
+    "🔗🧩📁": {
+      "name": "modular_link_map",
+      "purpose": "Connect modules and place them inside a structured workspace.",
+      "semantic_cluster": [
+        "modularity",
+        "linking",
+        "workspace structure"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "structure",
+        "build"
+      ],
+      "expected_output": [
+        "framework",
+        "json",
+        "code_structure"
+      ],
+      "status": "core"
+    },
+    "📥🔍🧾": {
+      "name": "ingest_inspect_trace",
+      "purpose": "Pull input, inspect details, and persist a trace record.",
+      "semantic_cluster": [
+        "ingestion",
+        "inspection",
+        "traceability"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "scan",
+        "extract",
+        "validate"
+      ],
+      "expected_output": [
+        "summary",
+        "audit",
+        "json"
+      ],
+      "status": "core"
+    },
+    "🧼🧹📦": {
+      "name": "sanitize_cleanup_package",
+      "purpose": "Clean the result, sweep residue, and pack the final artifact.",
+      "semantic_cluster": [
+        "sanitization",
+        "cleanup",
+        "artifact preparation"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "mitigate",
+        "package"
+      ],
+      "expected_output": [
+        "fixes",
+        "markdown",
+        "json"
+      ],
+      "status": "boost"
+    },
+    "🤖🔗🕸️": {
+      "name": "agent_mesh_link",
+      "purpose": "Link agents into a networked mesh execution pattern.",
+      "semantic_cluster": [
+        "agents",
+        "mesh orchestration",
+        "connected runtime"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "orchestrate",
+        "build"
+      ],
+      "expected_output": [
+        "system_flow",
+        "framework",
+        "plan"
+      ],
+      "status": "core"
+    },
+    "🎚️⚙️🚦": {
+      "name": "tuned_gate_control",
+      "purpose": "Tune orchestration parameters and gate execution flow.",
+      "semantic_cluster": [
+        "parameter tuning",
+        "runtime control",
+        "gated execution"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "orchestrate",
+        "validate"
+      ],
+      "expected_output": [
+        "system_flow",
+        "audit",
+        "plan"
+      ],
+      "status": "core"
+    },
+    "🧪📐🧊": {
+      "name": "test_precision_freeze",
+      "purpose": "Test precisely, lock the state, and stabilize the result.",
+      "semantic_cluster": [
+        "testing",
+        "precision",
+        "stability"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "validate",
+        "structure",
+        "mitigate"
+      ],
+      "expected_output": [
+        "audit",
+        "fixes",
+        "framework"
+      ],
+      "status": "core"
+    },
+    "🪞🕯️🧠": {
+      "name": "reflect_focus_reason",
+      "purpose": "Reflect inward, focus the signal, and reason deeply.",
+      "semantic_cluster": [
+        "reflection",
+        "focus",
+        "reasoning"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "reason",
+        "extract"
+      ],
+      "expected_output": [
+        "insight",
+        "structured_explanation"
+      ],
+      "status": "experimental"
+    },
+    "🪐📡🛰️": {
+      "name": "orbital_signal_stack",
+      "purpose": "Capture distant context and relay a layered signal map.",
+      "semantic_cluster": [
+        "macro context",
+        "signal relay",
+        "remote awareness"
+      ],
+      "mps_mode": 3,
+      "edde_phase": [
+        "scan",
+        "orchestrate"
+      ],
+      "expected_output": [
+        "insight",
+        "system_flow"
+      ],
+      "status": "experimental"
+    },
+    "🌑🔍🧿": {
+      "name": "dark_anomaly_probe",
+      "purpose": "Inspect hidden zones and detect anomalous patterns.",
+      "semantic_cluster": [
+        "unknown context",
+        "inspection",
+        "anomaly detection"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "scan",
+        "validate",
+        "reason"
+      ],
+      "expected_output": [
+        "risks",
+        "insight",
+        "audit"
+      ],
+      "status": "experimental"
+    },
+    "☀️💎🎯": {
+      "name": "clarity_core_target",
+      "purpose": "Expose the core clearly and lock onto a concrete target.",
+      "semantic_cluster": [
+        "clarity",
+        "distillation",
+        "precision target"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "extract",
+        "deliver"
+      ],
+      "expected_output": [
+        "plan",
+        "structured_explanation",
+        "framework"
+      ],
+      "status": "core"
+    },
+    "🗳️🔀💡": {
+      "name": "branch_idea_select",
+      "purpose": "Generate branches, compare them, and choose a promising direction.",
+      "semantic_cluster": [
+        "selection",
+        "branching",
+        "ideation"
+      ],
+      "mps_mode": 3,
+      "edde_phase": [
+        "remix",
+        "reason"
+      ],
+      "expected_output": [
+        "variants",
+        "ideas",
+        "plan"
+      ],
+      "status": "boost"
+    },
+    "📁📂🗄️": {
+      "name": "workspace_expand_archive",
+      "purpose": "Open workspace layers, expand contents, and index them cleanly.",
+      "semantic_cluster": [
+        "workspace management",
+        "expansion",
+        "archive indexing"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "structure",
+        "package"
+      ],
+      "expected_output": [
+        "json",
+        "framework",
+        "summary"
+      ],
+      "status": "boost"
+    },
+    "♻️🧪🧹": {
+      "name": "iterate_test_cleanup",
+      "purpose": "Loop through refinement, test the result, and clean leftovers.",
+      "semantic_cluster": [
+        "iteration",
+        "testing",
+        "cleanup"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "remix",
+        "validate",
+        "mitigate"
+      ],
+      "expected_output": [
+        "fixes",
+        "variants",
+        "audit"
+      ],
+      "status": "core"
+    },
+    "🔋🤖⚡": {
+      "name": "powered_agent_push",
+      "purpose": "Charge agent execution and push toward concrete delivery.",
+      "semantic_cluster": [
+        "energy",
+        "agent execution",
+        "delivery push"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "build",
+        "orchestrate",
+        "deliver"
+      ],
+      "expected_output": [
+        "system_flow",
+        "plan",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    "🪫⏱️⚠️": {
+      "name": "low_power_deadline_risk",
+      "purpose": "Detect low capacity under time pressure and surface the risk.",
+      "semantic_cluster": [
+        "capacity risk",
+        "timing pressure",
+        "warning state"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "validate",
+        "mitigate"
+      ],
+      "expected_output": [
+        "risks",
+        "plan",
+        "audit"
+      ],
+      "status": "core"
+    },
+    "🧾🏷️📎": {
+      "name": "trace_label_bind",
+      "purpose": "Record trace data, label it, and bind it to context.",
+      "semantic_cluster": [
+        "traceability",
+        "classification",
+        "context attachment"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "structure",
+        "package"
+      ],
+      "expected_output": [
+        "json",
+        "markdown",
+        "audit"
+      ],
+      "status": "boost"
+    },
+    "🪛🧩🔥": {
+      "name": "fine_modular_build",
+      "purpose": "Adjust small modular pieces and push them into build mode.",
+      "semantic_cluster": [
+        "fine tuning",
+        "modularity",
+        "implementation"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "build",
+        "validate"
+      ],
+      "expected_output": [
+        "code_structure",
+        "framework",
+        "fixes"
+      ],
+      "status": "boost"
+    },
+    "📺👁️🔍": {
+      "name": "screen_observe_inspect",
+      "purpose": "Observe a visible surface and inspect it for issues or signals.",
+      "semantic_cluster": [
+        "visual observation",
+        "inspection",
+        "screen analysis"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "scan",
+        "validate"
+      ],
+      "expected_output": [
+        "visual_analysis",
+        "audit",
+        "fixes"
+      ],
+      "status": "core"
+    },
+    "🌊🌀♻️": {
+      "name": "wave_loop_iterate",
+      "purpose": "Let the flow cycle and iterate naturally through repeated refinement.",
+      "semantic_cluster": [
+        "flow",
+        "loop",
+        "iterative refinement"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "orchestrate",
+        "remix"
+      ],
+      "expected_output": [
+        "system_flow",
+        "variants"
+      ],
+      "status": "boost"
+    },
+    "🪢🔗📐": {
+      "name": "constraint_link_geometry",
+      "purpose": "Tie dependencies together under precise structural constraints.",
+      "semantic_cluster": [
+        "constraints",
+        "linking",
+        "precision structure"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "structure",
+        "validate"
+      ],
+      "expected_output": [
+        "framework",
+        "risks",
+        "visual_analysis"
+      ],
+      "status": "boost"
+    },
+    "🪙🎯📊": {
+      "name": "value_target_metric",
+      "purpose": "Focus on target value and map it into measurable structure.",
+      "semantic_cluster": [
+        "value",
+        "goal focus",
+        "metrics"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "extract",
+        "reason",
+        "deliver"
+      ],
+      "expected_output": [
+        "plan",
+        "structured_explanation",
+        "audit"
+      ],
+      "status": "boost"
+    },
+    "🧿🛡️🔐": {
+      "name": "anomaly_guard_lock",
+      "purpose": "Detect anomaly, apply protection, and harden the boundary.",
+      "semantic_cluster": [
+        "anomaly detection",
+        "guardrails",
+        "secure locking"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "validate",
+        "mitigate"
+      ],
+      "expected_output": [
+        "risks",
+        "audit",
+        "fixes"
+      ],
+      "status": "core"
+    },
+    "🧘🫁🧊": {
+      "name": "calm_freeze_reset",
+      "purpose": "Slow down, reset the state, and stabilize before continuing.",
+      "semantic_cluster": [
+        "calm reset",
+        "pause",
+        "stabilization"
+      ],
+      "mps_mode": 2,
+      "edde_phase": [
+        "reason",
+        "validate"
+      ],
+      "expected_output": [
+        "summary",
+        "fixes"
+      ],
+      "status": "experimental"
+    },
+    "🌈💎🔥🧠🔀⚡": {
+      "name": "hyperflow_canonical_full_combo",
+      "purpose": "Canonical Hyperflow full combo from perception through synthesis, options, and final choice.",
+      "status": "core",
+      "semantic_cluster": [
+        "canonical full combo",
+        "full system",
+        "analysis",
+        "essence",
+        "direction",
+        "synthesis",
+        "options",
+        "choice"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "scan",
+        "extract",
+        "build",
+        "reason",
+        "remix",
+        "deliver"
+      ],
+      "expected_output": [
+        "framework",
+        "json",
+        "plan",
+        "code_structure",
+        "structured_explanation",
+        "variants"
+      ],
+      "canonical_execution_map": {
+        "🌈": "perceive -> requirements, context, constraints",
+        "💎": "extract essence -> schema, rules, core signal",
+        "🔥": "sense direction -> direction, force, priority",
+        "🧠": "synthesize -> coherence, edge cases, consistency",
+        "🔀": "see options -> alternatives, branching, comparison",
+        "⚡": "choose -> final selection and commitment"
+      }
+    },
+    "🌈💎🔥🧠⚡🔀": {
+      "name": "hyperflow_legacy_full_combo_reversed_tail",
+      "purpose": "Legacy reversed-tail full combo preserved for backward compatibility only; canonical full combo now uses options before choice.",
+      "status": "stable",
+      "semantic_cluster": [
+        "legacy full combo",
+        "backward compatibility",
+        "deprecated canonical order"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "scan",
+        "extract",
+        "build",
+        "reason",
+        "deliver",
+        "remix"
+      ],
+      "expected_output": [
+        "framework",
+        "json",
+        "plan",
+        "structured_explanation",
+        "decision",
+        "variants"
+      ],
+      "canonical_execution_map": {
+        "🌈": "perceive -> requirements, context, constraints",
+        "💎": "extract essence -> schema, rules, core signal",
+        "🔥": "sense direction -> direction, force, priority",
+        "🧠": "synthesize -> coherence, edge cases, consistency",
+        "⚡": "choose -> final selection and commitment",
+        "🔀": "see options -> alternatives, branching, comparison"
+      },
+      "notes": [
+        "Deprecated canonical order. Use 🌈💎🔥🧠🔀⚡ instead."
+      ]
+    }
+  },
+  "long_presets": [
+    {
+      "name": "MAX MOOD INJECTION",
+      "emoji": "🌈🔥✨💡🎨🔀🌌🧠",
+      "category": "CREATIVE_EXPRESSION",
+      "purpose": "Maximum amplification of expression, atmosphere, and output energy.",
+      "semantic_cluster": [
+        "style amplification",
+        "mood",
+        "creative expansion"
+      ],
+      "mps_mode": 3,
+      "edde_phase": [
+        "scan",
+        "remix",
+        "build"
+      ],
+      "expected_output": [
+        "ideas",
+        "framework",
+        "markdown"
+      ],
+      "status": "boost"
+    },
+    {
+      "name": "TECH + ACTION STACK",
+      "emoji": "⚙️💎🔥⚡🧱📦🚀",
+      "category": "TECH_FUTURE",
+      "purpose": "Technical build flow from essence to launch.",
+      "semantic_cluster": [
+        "engineering",
+        "delivery",
+        "system execution"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "extract",
+        "build",
+        "structure",
+        "deliver"
+      ],
+      "expected_output": [
+        "json",
+        "plan",
+        "code_structure"
+      ],
+      "status": "core"
+    },
+    {
+      "name": "SAFETY + ALERTS + MITIGATIONS",
+      "emoji": "👁️🛡️⚠️🧠📋🔒",
+      "category": "SAFETY_CONTROL",
+      "purpose": "Full safety, alert, and mitigation package.",
+      "semantic_cluster": [
+        "validation",
+        "safety",
+        "mitigation"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "validate",
+        "reason",
+        "mitigate"
+      ],
+      "expected_output": [
+        "audit",
+        "risks",
+        "fixes"
+      ],
+      "status": "core"
+    },
+    {
+      "name": "SOCIAL SPECTRUM",
+      "emoji": "🌈💡🫶🎭🧠🔀✨",
+      "category": "PARTY_FUN",
+      "purpose": "Work on tone, vibe, social reception, and relationship alignment.",
+      "semantic_cluster": [
+        "social alignment",
+        "style",
+        "tone modulation"
+      ],
+      "mps_mode": 2,
+      "edde_phase": [
+        "scan",
+        "remix",
+        "build"
+      ],
+      "expected_output": [
+        "ideas",
+        "markdown",
+        "summary"
+      ],
+      "status": "experimental"
+    },
+    {
+      "name": "NAV & FLOW CONTROL",
+      "emoji": "🧭🔀⚙️⚡📍🧱",
+      "category": "ORCHESTRATION_FLOW",
+      "purpose": "Control flow, routing path, and execution sequence.",
+      "semantic_cluster": [
+        "navigation",
+        "routing",
+        "control"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "orchestrate",
+        "remix",
+        "deliver"
+      ],
+      "expected_output": [
+        "system_flow",
+        "plan"
+      ],
+      "status": "core"
+    },
+    {
+      "name": "RESEARCH + DATA + CITATIONS",
+      "emoji": "🌈🔍📊📚🧠💎",
+      "category": "RESEARCH_DATA",
+      "purpose": "Research, gather data, and synthesize material into order.",
+      "semantic_cluster": [
+        "research",
+        "evidence",
+        "distillation"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "scan",
+        "extract",
+        "reason"
+      ],
+      "expected_output": [
+        "summary",
+        "insight",
+        "structured_explanation"
+      ],
+      "status": "core"
+    },
+    {
+      "name": "CREATIVE SPRINT",
+      "emoji": "🎨🌈💡🔥🔀✨",
+      "category": "CREATIVE_EXPRESSION",
+      "purpose": "Fast entry into creative mode and variant generation.",
+      "semantic_cluster": [
+        "creative ideation",
+        "style",
+        "variation"
+      ],
+      "mps_mode": 3,
+      "edde_phase": [
+        "scan",
+        "remix",
+        "build"
+      ],
+      "expected_output": [
+        "ideas",
+        "variants",
+        "framework"
+      ],
+      "status": "boost"
+    },
+    {
+      "name": "FULL TOOLS & CRAFTS",
+      "emoji": "🧰⚙️🧱📦🔧🔥💎",
+      "category": "WORK_OFFICE",
+      "purpose": "System craft mode: build, assemble, finalize.",
+      "semantic_cluster": [
+        "craft",
+        "build",
+        "packaging"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "extract",
+        "build",
+        "package"
+      ],
+      "expected_output": [
+        "framework",
+        "json",
+        "plan"
+      ],
+      "status": "boost"
+    },
+    {
+      "name": "RITUAL / CELEBRATION / SIGNOFF",
+      "emoji": "✨🎉🔥🌙💎📜",
+      "category": "COSMIC_MYSTICAL",
+      "purpose": "Closure, celebration, signature, and final ritual.",
+      "semantic_cluster": [
+        "closure",
+        "celebration",
+        "signoff"
+      ],
+      "mps_mode": 1,
+      "edde_phase": [
+        "package",
+        "deliver"
+      ],
+      "expected_output": [
+        "markdown",
+        "summary"
+      ],
+      "status": "experimental"
+    },
+    {
+      "name": "FULL PERSONA SET",
+      "emoji": "🌈💎🔥🧠⚡🔀👁️🧱📦",
+      "category": "CORE_SYSTEM",
+      "purpose": "Full system activation with validation, structuring, and packaging.",
+      "semantic_cluster": [
+        "full orchestration",
+        "deep reasoning",
+        "artifact generation"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "scan",
+        "extract",
+        "build",
+        "reason",
+        "validate",
+        "structure",
+        "package",
+        "deliver"
+      ],
+      "expected_output": [
+        "framework",
+        "json",
+        "plan",
+        "audit",
+        "code_structure"
+      ],
+      "status": "core"
+    }
+  ],
+  "short_presets": [
+    {
+      "name": "Deep Research",
+      "emoji": "🌈💎🧠🔍📊📚",
+      "category": "RESEARCH_DATA",
+      "purpose": "Deep analysis and synthesis of material.",
+      "semantic_cluster": [
+        "analysis",
+        "knowledge extraction",
+        "structured reasoning"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "scan",
+        "extract",
+        "reason"
+      ],
+      "expected_output": [
+        "insight",
+        "summary",
+        "structured_explanation"
+      ],
+      "status": "core"
+    },
+    {
+      "name": "Creative Sprint",
+      "emoji": "🎨🔥🌈💡✨",
+      "category": "CREATIVE_EXPRESSION",
+      "purpose": "Creative generation and style mode.",
+      "semantic_cluster": [
+        "creative",
+        "style",
+        "expression"
+      ],
+      "mps_mode": 3,
+      "edde_phase": [
+        "scan",
+        "build"
+      ],
+      "expected_output": [
+        "ideas",
+        "variants"
+      ],
+      "status": "boost"
+    },
+    {
+      "name": "Calm Analytical",
+      "emoji": "💎🧠📊👁️",
+      "category": "RESEARCH_DATA",
+      "purpose": "Calm, sober analysis.",
+      "semantic_cluster": [
+        "analysis",
+        "audit",
+        "clarity"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "extract",
+        "reason",
+        "validate"
+      ],
+      "expected_output": [
+        "structured_explanation",
+        "audit"
+      ],
+      "status": "boost"
+    },
+    {
+      "name": "Rapid Ideation",
+      "emoji": "🌈⚡🔥💡🔀",
+      "category": "CREATIVE_EXPRESSION",
+      "purpose": "Fast idea generation.",
+      "semantic_cluster": [
+        "ideas",
+        "creative branching",
+        "speed"
+      ],
+      "mps_mode": 3,
+      "edde_phase": [
+        "scan",
+        "remix",
+        "build"
+      ],
+      "expected_output": [
+        "ideas",
+        "variants"
+      ],
+      "status": "boost"
+    },
+    {
+      "name": "Safety Audit",
+      "emoji": "🧠👁️🛡️⚠️📋",
+      "category": "SAFETY_CONTROL",
+      "purpose": "Verification of risks and consistency.",
+      "semantic_cluster": [
+        "validation",
+        "risk",
+        "audit"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "reason",
+        "validate"
+      ],
+      "expected_output": [
+        "audit",
+        "risks",
+        "fixes"
+      ],
+      "status": "core"
+    },
+    {
+      "name": "Orchestration Sprint",
+      "emoji": "🧠⚙️🔀⚡📦",
+      "category": "ORCHESTRATION_FLOW",
+      "purpose": "Fast coordination of system and tasks.",
+      "semantic_cluster": [
+        "orchestration",
+        "execution",
+        "routing"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "orchestrate",
+        "deliver"
+      ],
+      "expected_output": [
+        "system_flow",
+        "plan"
+      ],
+      "status": "core"
+    },
+    {
+      "name": "Structured Plan",
+      "emoji": "💎🧠🧱📊📋",
+      "category": "WORK_OFFICE",
+      "purpose": "Build a formal plan.",
+      "semantic_cluster": [
+        "planning",
+        "structure"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "extract",
+        "reason",
+        "structure"
+      ],
+      "expected_output": [
+        "plan",
+        "framework",
+        "json"
+      ],
+      "status": "core"
+    },
+    {
+      "name": "Visual Debug",
+      "emoji": "👁️🔍🧠🧱⚙️",
+      "category": "TECH_FUTURE",
+      "purpose": "Debug layout, screens, and structure.",
+      "semantic_cluster": [
+        "debug",
+        "visual analysis",
+        "system correction"
+      ],
+      "mps_mode": 4,
+      "edde_phase": [
+        "scan",
+        "reason"
+      ],
+      "expected_output": [
+        "visual_analysis",
+        "fixes",
+        "structured_explanation"
+      ],
+      "status": "boost"
+    },
+    {
+      "name": "Engineering Focus",
+      "emoji": "⚙️💎🧱🔥📦",
+      "category": "TECH_FUTURE",
+      "purpose": "Engineering mode: modular and execution-oriented.",
+      "semantic_cluster": [
+        "engineering",
+        "build",
+        "artifact"
+      ],
+      "mps_mode": 5,
+      "edde_phase": [
+        "extract",
+        "structure",
+        "build",
+        "package"
+      ],
+      "expected_output": [
+        "code_structure",
+        "plan",
+        "json"
+      ],
+      "status": "core"
+    },
+    {
+      "name": "Social Alignment",
+      "emoji": "🌈🫶🧠✨",
+      "category": "PARTY_FUN",
+      "purpose": "Align tone, relationship, and reception.",
+      "semantic_cluster": [
+        "tone",
+        "alignment",
+        "social fit"
+      ],
+      "mps_mode": 2,
+      "edde_phase": [
+        "scan",
+        "reason",
+        "build"
+      ],
+      "expected_output": [
+        "markdown",
+        "summary"
+      ],
+      "status": "experimental"
+    }
+  ],
+  "quality_rule": {
+    "required_fields_per_preset": [
+      "purpose",
+      "semantic_cluster",
+      "mps_mode",
+      "edde_phase",
+      "expected_output"
+    ],
+    "validation_constraints": {
+      "mps_mode_range": [
+        1,
+        5
+      ],
+      "semantic_cluster_min": 1,
+      "expected_output_min": 1,
+      "emoji_min_length": 1
+    }
+  },
+  "canonical_signature": {
+    "emoji": "🌈💎🔥🧠🔀⚡",
+    "name": "hyperflow_canonical_full_combo",
+    "purpose": "Canonical Hyperflow full combo from perception through synthesis, options, and final choice.",
+    "mps_mode": 5,
+    "edde_phase": [
+      "scan",
+      "extract",
+      "build",
+      "reason",
+      "remix",
+      "deliver"
+    ],
+    "expected_output": [
+      "framework",
+      "json",
+      "plan",
+      "code_structure",
+      "structured_explanation",
+      "variants"
+    ],
+    "execution_map": {
+      "🌈": "analysis -> requirements, context, constraints",
+      "💎": "core -> schema, rules, essence",
+      "🔥": "build -> module, structure, implementation",
+      "🧠": "reasoning -> edge cases, errors, consistency",
+      "🔀": "remix -> reroute, branching, adaptation",
+      "⚡": "deliver -> execution push and result selection"
+    },
+    "status": "core"
+  },
+  "merged_extensions": [
+    {
+      "name": "CANONICAL_EMOJI_EXTENSION_PACK_BETA",
+      "version": "1.0.0",
+      "merge_target": "atomic_registry"
+    },
+    {
+      "name": "CANONICAL_EMOJI_COMBO_EXTENSION_BETA",
+      "version": "1.0.0",
+      "merge_target": "combo_registry"
+    },
+    {
+      "name": "CANONICAL_EMOJI_EXTENSION_PACK_GAMMA",
+      "version": "1.0.0",
+      "merge_target": "atomic_registry"
+    }
+  ]
+}
