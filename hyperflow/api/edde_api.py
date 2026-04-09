@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 from typing import Any
 
 from hyperflow.runtime_kernel import run
@@ -41,10 +42,10 @@ def create_app() -> Any:
         return _health_payload()
 
     @app.post("/v1/run", response_model=RunResponse)
-    def run_flow(request: RunRequest) -> RunResponse:
+    async def run_flow(request: RunRequest) -> RunResponse:
         try:
             command = build_command(request.prompt)
-            result = run(command)
+            result = await asyncio.to_thread(run, command)
         except ValueError as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
         except Exception as exc:  # pragma: no cover - defensive API wrapper
