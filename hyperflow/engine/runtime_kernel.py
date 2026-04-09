@@ -16,37 +16,6 @@ from hyperflow.output.output_pipeline import format_output
 from hyperflow.output.run_payload import serialize_run_payload
 from hyperflow.schemas.command_schema import CommandObject
 from hyperflow.schemas.edde_contract_schema import validate_edde_contract
-from collections.abc import Coroutine
-
-
-class _SyncAsyncResult(Coroutine):
-    def __init__(self, value):
-        self._value = value
-
-    def __getattr__(self, name):
-        return getattr(self._value, name)
-
-    def __repr__(self):
-        return repr(self._value)
-
-    def to_dict(self):
-        return self._value.to_dict()
-
-    def __await__(self):
-        async def _inner():
-            return self._value
-        return _inner().__await__()
-
-    def send(self, value):
-        raise StopIteration(self._value)
-
-    def throw(self, typ, val=None, tb=None):
-        if val is None:
-            raise typ
-        raise typ(val).with_traceback(tb)
-
-    def close(self):
-        return None
 
 
 def _best_effort_persist(operation, *args, **kwargs) -> None:
@@ -119,4 +88,4 @@ def run(command: CommandObject):
     payload = serialize_run_payload(command, result)
     _best_effort_persist(save_knowledge_object, payload)
 
-    return _SyncAsyncResult(result)
+    return result
